@@ -1,0 +1,433 @@
+<HTML>
+<HEAD>
+   <TITLE>表单</TITLE>
+<link rel="stylesheet" type="text/css"
+      href="convert.css">
+
+</HEAD>
+<BODY>
+
+<H1 ALIGN=CENTER>表单(FORM)标记(TAGS)</H1>
+
+<CENTER><P>
+<HR></P></CENTER>
+
+<P><!--################## Basic ########################--><A NAME="basic"></A></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP> 基本语法</H2>
+
+<P><!------Form Basic-------></P>
+
+<H3>表单的基本语法</H3>
+
+<DL>
+<H3><TT><font size=5>&lt;form action=&quot;URL&quot; method=# enctype=ContentType &gt;<BR>
+... <BR>
+... <BR>
+&lt;input type="submit"&gt; &lt;input type="reset"&gt;<BR>
+&lt;/form&gt; </font></TT></H3>
+
+<P><TT><font size=5>#=GET, POST </font></TT></P>
+<p>enctype属性规定表单发送时所使用的内容类型，其缺省值是"application/x-www-form-urlencoded"。
+当表单中含有TYPE=file的&lt;INPUT&gt;元素时，enctype属性的取值为"multipart/form-data",且必须用POST方法。</p>
+</DL>
+
+<PRE>
+</PRE>
+
+<P><!------Input Basic-------></P>
+
+<H3>表单中提供给用户的输入形式</H3>
+
+<DL>
+<H3><TT><font size=5>&lt;input type=# name=##&gt;</font></TT></H3>
+
+<P><TT><font size=5>#=text, password, checkbox, radio, image, hidden, submit, reset</font></TT></P>
+
+<P><TT><font size=5> ##=Symbolic Name for CGI script </font></TT></P>
+</DL>
+
+<PRE>
+</PRE>
+
+<P><!--################## Text & Passwd ########################--><A NAME="text"></A></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP> 文字输入和密码输入</H2>
+
+<P><!------Text & Password-------><TT><font size=5>#=text, password</font></TT> </P>
+
+<H3>&lt;input type=#&gt;<BR>
+&lt;input type=# value=##&gt;</H3>
+
+<PRE class="exam">
+<font size="5">&lt;form action="URL" method="POST"&gt;
+您的姓名:
+&lt;input type="text" name="xm"&gt;&lt;br&gt;
+您的主页的网址:
+&lt;input type="text" name="iploc" value="http://"&gt;&lt;br&gt;
+密码:
+&lt;input type="password" name="pass"&gt;&lt;br&gt;
+&lt;input type="submit" value="发送"&gt;&lt;input type="reset" value="重设"&gt;
+&lt;/form&gt;
+
+</font>
+</PRE>
+
+<P><FORM action="URL" method="POST">您的姓名: <INPUT type="text" name="xm"><BR>
+您的主页的网址: <INPUT type="text" name="iploc" value="http://"><BR>
+密码: <INPUT type="password" name="pass"><BR>
+<INPUT type="submit" value="发送"><INPUT type="reset" value="重设"></FORM></P>
+
+<PRE>
+</PRE>
+
+<P><!------Text & Password -- Size, Max -------></P>
+
+<H3>&lt;input type=## size=####&gt;<BR>
+&lt;input type=## maxlength=####&gt;</H3>
+
+<PRE class="exam">
+<font size="5">&lt;form action="URL" method="POST"&gt;
+&lt;input type="text" name="a01" size="40"&gt;&lt;br&gt;
+&lt;input type="text" name="a02" maxlength="5"&gt;&lt;br&gt;
+&lt;input type="submit"&gt;&lt;input type="reset"&gt;
+&lt;/form&gt;
+
+</font>
+</PRE>
+
+<P><FORM action=URL method=POST><INPUT type=text name=a01 size=40><BR>
+<INPUT type=text name=a02 maxlength=5><BR>
+<INPUT type=submit><INPUT type=reset></FORM></P>
+
+<PRE>
+</PRE>
+
+<P><!--################## Checkbox & Radio ########################--><A NAME="check"></A></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP> 复选框(Checkbox) 和 单选框(RadioButton) </H2>
+
+<P><!------Checkbox-------></P>
+
+<H3>&lt;input type=checkbox&gt;<BR>
+&lt;input type=checkbox checked&gt;<BR>
+&lt;input type=checkbox value=####&gt;</H3>
+
+<PRE class="exam">
+<font size=5>&lt;form action="URL" method="POST"&gt;
+&lt;input type="checkbox" name="fruit1"&gt;Banana&lt;p&gt;
+&lt;input type="checkbox" name="fruit2" checked&gt;Apple&lt;p&gt;
+&lt;input type="checkbox" name="fruit3" value="橘子"&gt;Orange&lt;p&gt;
+&lt;input type="submit"&gt;&lt;input type="reset"&gt;
+&lt;/form&gt;
+
+</font>
+</PRE>
+
+<P><FORM action=URL method=POST>
+<INPUT type=checkbox name=fruit1>Banana</P>
+
+<P> <INPUT type=checkbox name=fruit2 checked>Apple</P>
+
+<P> <INPUT type=checkbox name=fruit3 value=橘子>Orange</P>
+
+<P> <INPUT type=submit><INPUT type=reset></FORM></P>
+
+<PRE>
+</PRE>
+
+<P><!------Checkbox-------></P>
+
+<H3>&lt;input type=radio value=####&gt;<BR>
+&lt;input type=radio value=#### checked&gt;</H3>
+
+<PRE class="exam">
+<font size=5>
+&lt;form action="URL" method="POST"&gt;
+&lt;input type="radio" name="fruit"&gt;Banana&lt;p&gt;
+&lt;input type="radio" name="fruit" checked&gt;Apple&lt;p&gt;
+&lt;input type="radio" name="fruit" value="橘子"&gt;Orange&lt;p&gt;
+&lt;input type="submit"&gt;&lt;input type="reset"&gt;
+&lt;/form&gt;
+
+</font>
+</PRE>
+
+<P><FORM action=URL method=POST>
+<INPUT type=radio name=fruit>Banana</P>
+
+<P> <INPUT type=radio name=fruit checked>Apple</P>
+
+<P> <INPUT type=radio name=fruit value=橘子>Orange</P>
+
+<P> <INPUT type=submit><INPUT type=reset></FORM></P>
+
+<PRE>
+</PRE>
+
+<P><!--################## Image ########################--><A NAME="image"></A></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP> 图象坐标 </H2><P>
+<B>在下面选则一个系数后，在图象上点一下，就知道什么是图象坐标了！</B>
+
+
+<H3>&lt;input type=image src=url&gt;</H3>
+
+<PRE class="exam">
+<font size=5>&lt;form action=URL method=POST&gt;
+&lt;input type=image name=face src=f.gif&gt;&lt;p&gt;
+&lt;input type=radio name=zoom value=2 checked&gt;x2
+&lt;input type=radio name=zoom value=4&gt;x4
+&lt;input type=radio name=zoom value=6&gt;x6&lt;p&gt;
+&lt;input type=reset&gt;
+&lt;/form&gt;
+
+</font>
+</PRE>
+
+<P><FORM action=URL method=POST><INPUT type=image src=f.gif name=face></P>
+
+<P><INPUT type=radio name=zoom value=2 checked>x2 <INPUT type=radio name=zoom value=4>x4
+<INPUT type=radio name=zoom value=6>x6</P>
+
+<P> <INPUT type=reset></FORM></P>
+
+<PRE>
+</PRE>
+
+<P><!--################## Hidden ########################--><A NAME="hide"></A></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP> 隐藏表单的元素
+</H2>
+
+<H3>&lt;input type=hidden value=##&gt;</H3>
+
+<PRE class="exam">
+<font size=5>&lt;form action="URL" method="POST"&gt;
+&lt;input type="hidden" name="add" value="hoge@hoge.jp"&gt;
+Here is a hidden element. &lt;p&gt;
+&lt;input type="submit"&gt;&lt;input type="reset"&gt;
+&lt;/form&gt;
+
+</font>
+</PRE>
+
+<P><FORM action=URL method=POST><INPUT type=hidden name=add value=hoge@hoge.jp>Here
+is a hidden element. </P>
+
+<P><INPUT type=submit><INPUT type=reset></FORM></P>
+
+<PRE>
+</PRE>
+
+<P><!--################## Select ########################--><A NAME="select"></A></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP> 列表框(Selectable Menu) </H2>
+
+<P><!------Basic-------></P>
+
+<H3>基本语法</H3>
+
+<DL>
+<H3>&lt;select name=##&gt;<BR>
+&lt;option&gt; ...<BR>
+&lt;/select&gt; </H3>
+</DL>
+
+<P><!------select & option-------></P>
+
+<H3>&lt;option selected&gt;<BR>
+&lt;option value=####&gt;</H3>
+
+<PRE class="exam">
+<font size=5>&lt;form action="URL" method="POST"&gt;
+&lt;select name="fruits"&gt;
+        &lt;option&gt;Banana
+        &lt;option selected&gt;Apple
+        &lt;option value="My_Favorite"&gt;Orange
+&lt;/select&gt;&lt;p&gt;
+&lt;input type="submit"&gt;&lt;input type="reset"&gt;
+&lt;/form&gt;
+
+</font>
+</PRE>
+
+<P><FORM action=URL method=POST><SELECT name=fruits><OPTION>Banana
+<OPTION selected>Apple <OPTION value=My_Favorite>Orange </SELECT></P>
+
+<P><INPUT type=submit><INPUT type=reset></FORM></P>
+
+<PRE>
+</PRE>
+
+<P><!------size & multiple-------></P>
+
+<H3>&lt;select size=####&gt;</H3>
+
+<PRE class="exam">
+<font size=5>&lt;form action="URL" method="POST"&gt;
+&lt;select name="fruits" size="3"&gt;
+        &lt;option&gt;Banana
+        &lt;option selected&gt;Apple
+        &lt;option value="My_Favorite"&gt;Orange
+        &lt;option&gt;Peach
+&lt;/select&gt;&lt;p&gt;
+&lt;input type="submit"&gt;&lt;input type="reset"&gt;
+&lt;/form&gt;
+
+</font>
+</PRE>
+
+<P><FORM action=URL method=POST><SELECT name=fruits size=3><OPTION>Banana
+<OPTION selected>Apple <OPTION value=My_Favorite>Orange <OPTION>Peach </SELECT></P>
+
+<P><INPUT type=submit><INPUT type=reset></FORM></P>
+
+<PRE>
+</PRE>
+
+<P><!------multiple-------></P>
+
+<H3>&lt;select size=#### multiple&gt;</H3>
+<B>注意，是用 Ctrl 键配合鼠标实现多选。<BR>
+(和 MS-WINDOWS 的 File Manager 一样)</B>
+
+<PRE class="exam">
+<font size=5>&lt;form action="URL" method="POST"&gt;
+&lt;select name="fruits" size="3" multiple&gt;
+        &lt;option selected&gt;Banana
+        &lt;option selected&gt;Apple
+        &lt;option value="My_Favorite"&gt;Orange
+        &lt;option selected&gt;Peach
+&lt;/select&gt;&lt;p&gt;
+&lt;input type="submit"&gt;&lt;input type="reset"&gt;
+&lt;/form&gt;
+</font>
+</PRE>
+
+<P><FORM action=URL method=POST><SELECT name=fruits size=3 multiple><OPTION selected>Banana
+<OPTION selected>Apple <OPTION value=My_Favorite>Orange <OPTION selected>Peach
+</SELECT></P>
+
+<P><INPUT type=submit><INPUT type=reset></FORM></P>
+
+<PRE>
+</PRE>
+
+<P><!--################## Textarea ########################--><A NAME="textarea"></A></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP> 文本区域</H2>
+
+<H3>&lt;textarea name=## rows=#### cols=####&gt;  &lt;/textarea&gt;</H3>
+
+<PRE class="exam">
+<font size=5>&lt;form action="URL" method="POST"&gt;
+&lt;textarea name="comment" rows="5" cols="60"&gt;&lt;/textarea&gt;
+&lt;P&gt;
+&lt;input type="submit"&gt;&lt;input type="reset"&gt;
+&lt;/form&gt;
+
+</font>
+</PRE>
+
+<P><FORM action=URL method=POST><TEXTAREA name=comment rows=5 cols=60></TEXTAREA></P>
+
+<P><INPUT type=submit><INPUT type=reset></FORM></P>
+
+<PRE>
+</PRE>
+
+<P><!------Word Wrapping Off-------><A NAME="wrap"></A></P>
+
+<H3>对于很长的行是否进行换行的设置(Word Wrapping) <IMG SRC="netscape.gif" HEIGHT=14 WIDTH=80></H3>
+
+<H3>&lt;textarea wrap=off&gt;  &lt;/textarea&gt;</H3>
+
+<DL>
+<DD>不换行，是缺省设置。</DD>
+</DL>
+
+<P><!------Word Wrapping Soft-------></P>
+
+<H3>&lt;textarea wrap=soft&gt;  &lt;/textarea&gt;</H3>
+“软换行”，好象 MS－WORD 里的“软回车”。
+
+<DL>
+<DD><TT><font size=5>&lt;form action="URL" method="POST"&gt;<BR>
+&lt;textarea wrap="soft" name="comment" rows="5" cols="25"&gt; &lt;/textarea&gt;&lt;P&gt;<BR>
+&lt;input type="submit"&gt;&lt;input type="reset"&gt;<BR>
+&lt;/form&gt;</font></TT><BR>
+</DD>
+</DL>
+
+<P><FORM action=URL method=POST><TEXTAREA wrap=soft name=comment rows=5 cols=25></TEXTAREA></P>
+
+<P><INPUT type=submit><INPUT type=reset></FORM></P>
+
+<P><!------Word Wrapping Hard-------></P>
+
+<H3>&lt;textarea wrap=hard&gt;  &lt;/textarea&gt;</H3>
+“硬换行”，好象 MS－WORD 里的“硬回车”。
+
+<DL>
+<DD><TT><font size=5>&lt;form action="URL" method="POST"&gt;<BR>
+&lt;textarea wrap="hard" name="comment" rows="5" cols="25"&gt; &lt;/textarea&gt;&lt;P&gt;<BR>
+&lt;input type="submit"&gt;&lt;input type="reset"&gt;<BR>
+&lt;/form&gt;</font></TT><BR>
+</DD>
+</DL>
+
+<P><FORM action=URL method=POST><TEXTAREA wrap=hard name=comment rows=5 cols=25></TEXTAREA></P>
+
+<P><INPUT type=submit><INPUT type=reset></FORM></P>
+
+ <BR>
+</FONT>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP> 按钮(BUTTON)</H2>
+
+<P><!------BUTTON-------></P>
+
+<H3>&lt;BUTTON TYPE= NAME=  VALUE=  ACCESSKEY=  TABINDEX=   &gt;按钮上显示的内容&lt;/BUTTON&gt;<BR></H3>
+
+<PRE class="exam">
+<font size=5>&lt;form action="URL" method="POST"&gt;
+&lt;button name="submit" value="append"  accesskey="M"&gt;Append Information &lt;/button&gt;<br>
+
+&lt;button name="submit" value="execute"  accesskey="C"&gt;Execute Application &lt;/button&gt;<br>
+
+&lt;button accesskey="S"&gt;&lt;strong&gt;Submit&lt;/strong&gt;<br>
+&lt;img src="br20t.gif"&gt; &lt;/button&gt;<br>
+
+&lt;button accesskey="R"&gt;&lt;strong&gt;Reset&lt;/strong&gt;<br>
+&lt;img src="br20t.gif"&gt; &lt;/button&gt;<br>
+
+&lt;button type=button ID=ht onclick="ht()" accesskey="H"&gt;Hide &lt;stong&gt;Password&lt;/strong&gt; information&lt;/button&gt;<br>
+
+&lt;/form&gt;
+
+</font>
+</PRE>
+
+<font size=5>
+<form action="URL" method="POST">
+<button name="submit" value="append"  accesskey="M">Append Information </button><br>
+
+<button name="submit" value="execute"  accesskey="C">Execute Application </button><br>
+
+<button accesskey="S"><strong>Submit</strong><br>
+<img src="br20t.gif"> </button><br>
+
+<button accesskey="R"><strong>Reset</strong><br>
+<img src="br20t.gif"> </button><br>
+
+<button type=button ID=ht onclick="ht()" accesskey="H">Hide <stong>Password</strong> information</button><br>
+</form>
+</font>
+<h3>
+TABINDEX属性规定了一个0到32767之间的数字来表明该按钮的tab键遍历次序。其值（大于0的）
+越小越先被访问。如果两者的值相同，则在HTML文档中先出现的元素先被访问。
+</h3>
+
+</BODY>
+</HTML>

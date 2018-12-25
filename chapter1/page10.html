@@ -1,0 +1,341 @@
+<HTML>
+<HEAD>
+   <TITLE> 多窗口页面</TITLE>
+<link rel="stylesheet" type="text/css"
+      href="convert.css">
+
+</HEAD>
+<BODY BGCOLOR="#D4D4D4">
+
+<H1 ALIGN=CENTER>多窗口页面(Frames)</H1>
+
+<CENTER><P>
+<HR></P></CENTER>
+
+<P><!--################## Frame ########################--><A NAME="frame"></A></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP> 基本语法
+</H2>
+
+<P><!------Basic-------></P>
+
+<H2>&lt;frameset&gt; ... &lt;/frameset&gt;<BR>
+&lt;frame src=&quot;url&quot;&gt; <BR>
+&lt;noframes&gt; ... &lt;/noframes&gt;</H2>
+
+<P class="big">在 &lt;noframes&gt; 标记后的文字将只出现在不支持 FRAMES 的浏览器中。</P>
+
+<PRE><font size=5>        &lt;HTML&gt;
+        &lt;HEAD&gt;
+        &lt;/HEAD&gt;
+        &lt;FRAMESET&gt;
+             &lt;FRAME SRC=&quot;url&quot;&gt;
+             &lt;NOFRAMES&gt; ... &lt;/NOFRAMES&gt;
+        &lt;/FRAMESET&gt;
+        &lt;/HTML&gt;</font></PRE>
+
+<P><!--################## Size ########################--><A NAME="size"></A></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP> 各窗口的尺寸设置
+</H2>
+
+<P><!------COLS-------></P>
+
+<H2>&lt;frameset cols=#&gt;</H2>
+纵向排列多个窗口：
+
+<DL>
+<PRE class="exam">
+<font size=5>
+&lt;frameset cols=&quot;30%,20%,50%&quot;&gt;
+&lt;frame src=&quot;left.html&quot;&gt;
+&lt;frame src=&quot;middle.html&quot;&gt;
+&lt;frame src=&quot;right.html&quot;&gt;
+&lt;/frameset&gt;
+
+</font>
+</PRE>
+</DL>
+
+
+<a href="frame1.html">框架页面例子1</a>
+<br><br><br><br>
+
+
+<P><!------ROWS-------></P>
+
+<H2>&lt;frameset rows=#&gt;</H2>
+横向排列多个窗口：
+
+<DL>
+<PRE class="exam">
+<font size=5>
+&lt;frameset rows=&quot;25%,25%,50%&quot;&gt;
+&lt;frame src=&quot;top.html&quot;&gt;
+&lt;frame src=&quot;middle.html&quot;&gt;
+&lt;frame src=&quot;bottom.html&quot;&gt;
+&lt;/frameset&gt;
+
+</font>
+</PRE>
+</DL>
+
+
+<a href="frame2.html">框架页面例子2</a>
+<br><br><br><br>
+
+
+<P><!------COLS & ROWS-------></P>
+
+<H2>COLS &amp; ROWS</H2>
+纵横排列多个窗口：
+
+<DL>
+<PRE class="exam">
+<font size=5>
+&lt;frameset cols=&quot;20%,*&quot;&gt;
+&lt;frame src=&quot;left.html&quot;&gt;
+     &lt;frameset rows=&quot;40%,*&quot;&gt;
+     &lt;frame src=&quot;top.html&quot;&gt;
+     &lt;frame src=&quot;bottom.html&quot;&gt;
+     &lt;/frameset&gt;
+&lt;/frameset&gt;
+
+</font>
+</PRE>
+</DL>
+
+
+
+<P><!------No Resize-------></P>
+
+<H2>不允许各窗口改变大小 &lt;frame noresize&gt;</H2>
+
+<DL>
+<DD>缺省设置是允许各窗口改变大小的。</DD>
+</DL>
+
+<PRE>
+</PRE>
+
+<P><!--################## Frame Target ########################--><A NAME="target"></A></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP> 各窗口间相互操作(Frame Target)
+</H2>
+
+<P><!------NAME-------></P>
+
+<H2>窗口标识(Frame Name) <BR>
+&lt;frame name=#&gt;<BR>
+&lt;a href=url target=#&gt; </H2>
+
+<DL>
+<PRE class="exam">
+<font size=5>
+&lt;frameset cols=&quot;50%,50%&quot;&gt;
+&lt;frame src=&quot;A.html&quot;&gt;
+&lt;frame src=&quot;B.html&quot; name=&quot;HELLO&quot;&gt;
+&lt;/frameset&gt;
+
+</font>
+</PRE>
+</DL>
+
+
+
+<P><!------Special Target-------></P>
+
+<FONT COLOR=RED SIZE=+2>特殊的 4 类操作</FONT><BR>
+<H2>
+&lt;a href=&quot;url&quot; target=&quot;_blank&quot;&gt; 新窗口<BR>
+&lt;a href=&quot;url&quot; target=&quot;_self&quot;&gt; 本窗口<BR>
+&lt;a href=&quot;url&quot; target=&quot;_parent&quot;&gt; 父窗口<BR>
+&lt;a href=&quot;url&quot; target=&quot;_top&quot;&gt; 整个浏览器窗口</H2>
+
+</P>
+
+<PRE>
+</PRE>
+
+<P><!--################## Frame Appearance ########################--><A NAME="appear"></A></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP> Frame 的外观(Appearance)
+</H2>
+
+<P><!------BORDER-------></P>
+
+<H3>各窗口边框的设置 &lt;frame frameborder=#&gt; #=yes, no / 1, 0</H3>
+
+<DL>
+<PRE class="exam">
+<font size=5>
+&lt;frameset rows=&quot;30%,*&quot;&gt;
+&lt;frame src=&quot;Acol.html&quot; frameborder=&quot;1&quot;&gt;
+&lt;frameset cols=&quot;30%,*&quot;&gt;
+     &lt;frame src=&quot;Bcol.html&quot; frameborder=&quot;0&quot;&gt;
+     &lt;frame src=&quot;Ccol.html&quot; frameborder=&quot;0&quot;&gt;
+&lt;/frameset&gt;
+&lt;/frameset&gt;
+
+</font>
+</PRE> (A 有边框，B、C 没有)
+</DL>
+
+<TABLE WIDTH="100" HEIGHT="120" frame="box" rules="rows" >
+<TR>
+<TD height=36 colspan=2 align=center bgcolor=3333ff>A </TD>
+</TR>
+
+<TR>
+<TD height=84 width=30 align=center bgcolor=9999ff>B </TD>
+
+<TD height=84 width=70 align=center bgcolor=ffffff>C </TD>
+</TR>
+</TABLE>
+
+<P><!------Frame Spacing-------></P>
+
+<H3>各窗口间空白区域的设置 <BR>
+&lt;frameset framespacing=#&gt; #=空白区域的大小 <IMG SRC="ie.gif" HEIGHT=14 WIDTH=80></H3>
+
+<DL>
+<PRE class="exam">
+<font size=5>
+&lt;frameset rows=&quot;30%,*&quot; framespacing=&quot;100&quot;&gt;
+&lt;frame src=&quot;Acol.html&quot;&gt;
+&lt;frameset cols=&quot;30%,*&quot;&gt;
+     &lt;frame src=&quot;Bcol.html&quot;&gt;
+     &lt;frame src=&quot;Ccol.html&quot;&gt;
+&lt;/frameset&gt;
+&lt;/frameset&gt;
+
+</font>
+</PRE>
+</DL>
+
+<TABLE CELLSPACING=10 WIDTH="100" HEIGHT="120" >
+<TR>
+<TD height=36 colspan=2 align=center bgcolor=3333ff>A </TD>
+</TR>
+
+<TR>
+<TD height=84 width=30 align=center bgcolor=9999ff>B </TD>
+
+<TD height=84 width=70 align=center bgcolor=ffffff>C </TD>
+</TR>
+</TABLE>
+
+<P><!------Border Color-------></P>
+
+<H3>边框色彩 &lt;frameset bordercolor=#&gt; <IMG SRC="netscape.gif" HEIGHT=14 WIDTH=80></H3>
+
+<DL>
+<DD>#=rrggbb 16 进制 RGB 数码, 或者是下列预定义色彩名称：<BR>
+<FONT COLOR="#000000">Black</FONT>, <FONT COLOR="#808000">Olive</FONT>,
+<FONT COLOR="#008080">Teal</FONT>, <FONT COLOR="#FF0000">Red</FONT>, <FONT COLOR="#0000FF">Blue</FONT>,
+<FONT COLOR="#800000">Maroon</FONT>, <FONT COLOR="#000080">Navy</FONT>,
+<FONT COLOR="#808080">Gray</FONT>, <FONT COLOR="#00FF00">Lime</FONT>, <BR>
+<FONT COLOR="#FF00FF">Fuchsia</FONT>, <FONT COLOR="#FFFFFF">White</FONT>,
+<FONT COLOR="#008000">Green</FONT>, <FONT COLOR="#800080">Purple</FONT>,
+<FONT COLOR="#C0C0C0">Silver</FONT>, <FONT COLOR="#FFFF00">Yellow</FONT>,
+<FONT COLOR="#00FFFF">Aqua</FONT> </DD>
+</DL>
+
+<DL>
+<PRE class="exam">
+<font size=5>
+&lt;frameset rows=&quot;30%,*&quot; bordercolor=&quot;red&quot;&gt;
+&lt;frame src=&quot;Acol.html&quot;&gt;
+&lt;frameset cols=&quot;30%,*&quot;&gt;
+     &lt;frame src=&quot;Bcol.html&quot;&gt;
+     &lt;frame src=&quot;Ccol.html&quot;&gt;
+&lt;/frameset&gt;
+&lt;/frameset&gt;
+
+</font>
+</PRE>
+</DL>
+
+<TABLE WIDTH="100" HEIGHT="120" BGCOLOR="#FF0000" bordercolor="red" >
+<TR>
+<TD height=36 colspan=2 align=center bgcolor=3333ff>A </TD>
+</TR>
+
+<TR>
+<TD height=84 width=30 align=center bgcolor=9999ff>B </TD>
+
+<TD height=84 width=70 align=center bgcolor=ffffff>C </TD>
+</TR>
+</TABLE>
+
+<P><!------MARGIN-------></P>
+
+<H3>页面空白(Margin) &lt;frame marginwidth=# marginheight=#&gt;</H3>
+
+<DL>
+<PRE class="exam">
+<font size=5>
+&lt;frameset cols=&quot;50%,50%&quot;&gt;
+&lt;frame src=&quot;A.html&quot;&gt;
+&lt;frame src=&quot;A.html&quot;
+    marginwidth=&quot;50&quot;
+    marginheight=&quot;50&quot;&gt;
+&lt;/frameset&gt;
+
+</font></PRE>
+</DL>
+
+<TABLE WIDTH="100" HEIGHT="120" border>
+<TR>
+<TD width=50 align=center>AAAA </TD>
+
+<TD width=50 align=center>AA<BR>
+AA </TD>
+</TR>
+</TABLE>
+
+<P><!------SCROLLBAR-------></P>
+
+<H3>卷滚条设置 &lt;frame scrolling=#&gt; #=yes, no, auto</H3>
+
+<DL>
+<DD>#=缺省值是 auto。 </DD>
+</DL>
+
+<PRE>
+</PRE>
+
+<P><!--################## Floating Frame ########################--><A NAME="float"></A></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP> 浮动窗口(Floating Frame)<IMG SRC="ie.gif" HEIGHT=14 WIDTH=80></H2>
+
+<P><!------Floating Frame-------></P>
+
+<H3>&lt;iframe src=# name=##&gt; ... &lt;/iframe&gt; <BR>
+#=初始页面的 URL<BR>
+##=<A HREF="#target">窗口标识</A>(Frame Name)<FONT SIZE=+0>(之后可对此标识进行<A HREF="#target">各窗口间相互操作</A>)<BR>
+</FONT>... = 此处文字将只出现在不支持 FRAMES 的浏览器中。</H3>
+<p>浮动窗口相当于在一行文本或一个文本块中插入一个窗口。</p>
+<DL>
+<PRE class="exam">
+<font size=5>
+&lt;center&gt;
+&lt;iframe src=&quot;left.html&quot; name=&quot;window&quot;&gt;
+   Here is a Floating Frame
+&lt;/iframe&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;a href=&quot;middle.html&quot; target=&quot;window&quot;&gt;中间页面&lt;/A&gt;&lt;BR&gt;
+&lt;a href=&quot;top.html&quot; target=&quot;window&quot;&gt;上部页面&lt;/A&gt;&lt;BR&gt;
+&lt;a href=&quot;bottom.html&quot; target=&quot;window&quot;&gt;底部页面&lt;/A&gt;&lt;BR&gt;
+&lt;/center&gt;
+
+</font></PRE>
+</DL>
+
+<a href="frame3.html">浮动窗口的例子</a>
+<br><br><br><br>
+
+ <BR>
+</FONT>
+</BODY>
+</HTML>

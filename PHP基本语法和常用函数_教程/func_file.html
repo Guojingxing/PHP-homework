@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+        <title>文件操作函数</title>
+<link rel="stylesheet" type="text/css" href="this.css">         
+</head>
+
+<body>
+<h2 align="center">第六节  文件操作函数</h2>
+
+<a name="s61"></a><p>一  文件读写
+<h3>1      fopen： 打开文件或资源 </h3>
+<h3>      resource fopen ( string filename, string mode [, int use_include_path])</h3>
+
+<p>filename是要打开的文件的路径（字符串），mode 是打开文件的模式，后一个可选项规定是否搜索包含文件（include files ）。filename只要不以"http://" ， "ftp://" ， "php://stdin", "php://stdout", 或 "php://stderr", 开头，就从文件系统打开一个filename指定路径的文件，如果操作成功，返回指向该文件的指针，否则返回false。
+<pre>
+    打开文件的模式 mode 可以取以下值：
+
+'r' ：以只读方式打开; 将文件指针指向文件的开始处。
+
+'r+' ： 以读/写方式打开; 将文件指针指向文件的开始处。
+
+'w' ： 以只写方式打开; 将文件指针指向文件的开始处，截断后面所有内容使文件长度为 0 ，即覆盖原文件的所有内容。如果指定的文件不存在，则试图创建该文件。
+
+'w+' ： 以读/写方式打开; 将文件指针指向文件的开始处，截断后面所有内容使文件长度为 0  ，即覆盖原文件的所有内容。如果指定的文件不存在，则试图创建该文件。
+
+'a' ： 以只写方式打开; 将文件指针指向文件的末尾处，要写入的内容添加在该文件的末尾。如果指定的文件不存在，则试图创建该文件。
+
+'a+' ： 以读/写方式打开; 将文件指针指向文件的末尾处，要写入的内容添加在该文件的末尾。如果指定的文件不存在，则试图创建该文件。
+
+'x' ： 创建并以只写方式打开; 将文件指针指向文件的开始处，如果指定的文件不存在，则试图创建该文件；如果指定的文件已经存在，则返回false。
+
+'x+' ： 创建并以读/写方式打开; 将文件指针指向文件的开始处，如果指定的文件不存在，则试图创建该文件；如果指定的文件已经存在，则返回false。
+</pre>
+<p>在模式符号最后还可以加上字符't'，其作用是把文件里的回车换行符\n 转换成 \r\n。或者用字符'b'，严格按二进制形式打开文件。
+
+<h3>2    fgets：从文件指针处读取一行数据  </h3>
+<h3>string fgets ( resource handle [, int length])  </h3>
+<p>    该函数用于读取一行 （length - 1）字节用fopen（）函数打开的文件，并将文件内容以字符串形式保存。如果在达到（length - 1）字节之前遇到新的一行开始或到达文件末尾（EOF），则读取该行或整个文件。若没有指定length参数，缺省长度为1K，即1024字节。若操作失败则返回false。
+
+<h3>3    fread：  按二进制方式读取文件 </h3>
+<h3>    string fread ( resource handle, int length)  </h3>
+<p>      该函数用于从文件指针处读取length 字节数据，以字符串形式保存。如果在达到length 字节之前遇到文件末尾（EOF），则读取整个文件。
+
+<h3>4    file： 读取整个文件内容存放到数组中 </h3>
+<h3>    array file ( string filename [, int use_include_path ])</h3>
+<p>该函数按行读取文件内容，每一行作为一个数组元素，遇错误返回false 。
+
+<h3>5    file_get_contents：读取整个文件内容存放到字符串中</h3>
+<h3>    string file_get_contents ( string filename [, bool use_include_path ])</h3>
+<p> 该函数按行读取整个文件内容，存放到字符串中，遇错误返回false 。
+
+<h3>6    fwrite：以二进制方式向文件写入数据</h3>
+<h3>    int fwrite ( resource handle, string string [, int length])</h3>
+<p>该函数将字符串string写入到文件里文件指针指向的位置。写入字节数length若缺省，则将整个string写入，若给定其数值，则写入指定字节的内容，或遇string结束而停止。返回实际写入的字节数量。
+<p>另一个功能与用法同样的函数是fputs。
+
+<h3>7    fclose： 关闭文件 </h3>
+<h3>    bool fclose ( resource handle)  </h3>
+<p>关闭handle指向的文件。
+
+
+<a name="s62"></a><p>二  文件检测
+
+<h3>1   file_exists： 检测某个文件或文件夹是否存在 </h3>
+<h3>    bool file_exists ( string filename)  </h3>
+<p>若指定的文件或文件夹filename存在，返回true，否则返回false。
+<h3>2    filesize： 检测文件大小 </h3>
+<h3>    int filesize ( string filename)  </h3>
+<p>返回文件的字节数量。对于大于2GB的文件，返回的数值可能超过整数所能表示的最大数的范围，所以在此时可以用
+sprintf("%u", filesize($file))
+来输出显示。
+
+<h3>3    filetype： 检测文件类型 </h3>
+<h3>    string filetype ( string filename) </h3>
+<p>    返回文件的类型名。可能的名称有：fifo, char, dir, block, link, file, 以及 unknown。
+
+<h3>4    pathinfo：  检测文件的路径信息 </h3>
+<h3>    array pathinfo ( string path)   </h3>
+<p>    返回包含文件路径信息的数组，数组元素表示文件的路径、文件名、扩展名。例如：
+&lt;?php
+
+$path_parts = pathinfo("/www/htdocs/index.html");
+
+echo $path_parts["dirname"] . "\n";
+echo $path_parts["basename"] . "\n";
+echo $path_parts["extension"] . "\n";
+
+?&gt;
+
+结果输出：
+/www/htdocs
+index.html
+html
+
+
+<h3>5   feof： 检测是否文件结尾 </h3>
+<h3>    bool feof ( resource handle) </h3>
+<p>若到文件指针到达EOF，返回TRUE。
+
+
+<a name="s63"></a><p>  三  文件操作
+
+<h3>1    copy： 复制文件 </h3>
+<h3>    bool copy ( string source, string dest)</h3>
+<p>该函数把源文件source复制到目的文件dest，操作成功返回TRUE，否则返回FALSE。
+
+<h3>2    unlink： 删除文件 </h3>
+<h3>    bool unlink ( string filename ) </h3>
+<p>    删除filename文件。
+
+<h3>3   rmdir： 删除文件夹 </h3>
+<h3>    bool rmdir ( string dirname ) </h3>
+<p>      删除filename文件夹（必须为空）。
+
+<h3>4    rename： 重命名文件或文件夹 </h3>
+<h3>    bool rename ( string oldname, string newname ) </h3>
+<p>    该函数把文件或文件夹的旧名称oldname换成新名称newname。
+
+</body>
+</html>

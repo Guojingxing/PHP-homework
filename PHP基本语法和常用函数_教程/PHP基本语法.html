@@ -1,0 +1,471 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+        <title>PHP的基本语法</title>
+</head>
+
+<body>
+
+
+<center>    PHP的基本语法</center>
+
+<pre>
+<a href="#sect01">第一节    如何编写 PHP 程序</a>
+<a href="#sect02">第二节    PHP 程序中的常量和变量</a>
+<a href="#sect03">第三节    PHP 程序中的运算类型</a>
+<a href="#sect04">第四节    PHP 程序中的流程控制</a>
+<a href="#sect05">第五节    PHP 程序中的函数</a>
+<a href="#sect06">第六节    PHP 程序中的引用文件</a>
+</pre>　　
+<p>　　PHP的本质是一种源代码开放的通用脚本语言（Script Language），其全称是：Hypertext Preprocessor，特别适合于开发网络应用程序，可以很方便地嵌入到网页文件里。有了上一章的HTML基础，我们就能把PHP程序语句和HTML代码按照需要进行混合，编写出服务器端的页面代码。
+原则上讲，可以选用任何文本编辑工具来编写ＰＨＰ脚本程序，但从使用的针对性和方便角度考虑，建议选用专门的ＰＨＰ编辑工具。目前专门用于编辑ＰＨＰ程序的工具不局限于本章提到的那些，读者可以通过网络搜索到更多的可用工具。
+本章第二节中对ＰＨＰ的预定义常量和变量的叙述采取了比较简略的方法，原因是其数量比较多，暂时也不必要用到很多，在以后需要使用时可以查ＰＨＰ的手册来了解其含义和用法。ＰＨＰ中变量的变量是其一个特色，具体应用实例在第五章叙述。
+PHP程序中的运算类型和流程控制与Ｃ语言有很多类似的地方，因为ＰＨＰ语言本身就是借鉴Ｃ语言的精华因素，抛弃了Ｃ语言里比较烦琐的内容，也融入了其它语言的优点形成的。这里对语法的介绍是粗线条式的，因为真正掌握它的语法要靠在后续的程序中来体会。
+
+
+<p><a name="sect01"></a><font color="red">第一节    如何编写 PHP 程序</font>
+
+<p>  一  选取写作 PHP 程序的编辑工具
+
+<p>如果你只会用 Frontpage、Dreamweaver 等软件以"所见即所得"的编辑模式来制作网页，而完全不懂 HTML 语言，你就需要先了解 HTML 语言，才能顺利地编写 PHP 程序。如果你非常熟悉 HTML 语言，那么你就可以马上开始 写PHP 程序了。
+对 Windows 系列操作系统的使用者，在开发 PHP 程序时可以使用 PHP Editor，这个软件可以到 http://www.soysal.com/PHPEd 下载最新的版本，同时还需要下载 PHP 程序 Win32 的版本。安装好 PHP Win32 版后，在 PHP Editor 中设定好 PHP Win32 的路径，你就可以开发 PHP 程序了。
+对于熟悉Linux/UNIX 的用户，在装好 Web 服务器和 PHP 程序后，可以直接用 vi 或 Emacs 写 PHP 程序，并且可以直接看到程序执行的结果，和数据库或是其它的程序连接也不会有什么问题。
+
+<p>  二  简单的编程例子:
+
+<p>    我们在这里用 PHP 来写个很简单的页面，即在页面上输出 "欢迎来到我的站点" 这么一行文字的程序:
+<p>
+&lt;html&gt;<br>
+&lt;head&gt; <br>
+&lt;title&gt;我的主页&lt;/title&gt; <br>
+&lt;/head &gt; <br>
+&lt;body&gt;<br>
+&lt;? <br>
+  echo "欢迎来到我的站点\n";<br>
+?&gt;  <br>
+&lt;/body&gt; <br>
+&lt;/html&gt;  <br>
+
+
+<p>    这几行程序在 PHP 中不需经过编译等复杂的过程，只要将它放在设定好可执行 PHP 语法的服务器中，将它存成文件 abc1.php 好了。在用户的浏览器端，只要在地址栏中输入 http://yourhostname/abc1.php，就可以在浏览器上看到"欢迎来到我的站点" 字符串出现。
+    这个程序只有三行和PHP语言有关系，其它六行都是标准的 HTML 语法。而它在返回浏览器时和 JavaScript 或 VBScript 完全不一样，PHP 的程序没有传到浏览器，在浏览器上看的是程序执行的结果。
+在第六行及第八行，分别是 PHP 的开始及结束的嵌入符号。第七行才是服务器端执行的程序。在这个例子中，"\n" 和 C 语言的表示都一模一样，代表换行的意思。在一条PHP语句结束后，要加上分号代表结束。
+
+<p>  三  嵌入方法
+
+<p>    要在页面中放入 PHP，有以下几种做法:
+<?   程序语句;  ?>
+
+
+<p>&lt;?php 程序语句; ? &gt;
+<p>
+<p>&lt;script language="php"&gt;
+<p>程序语句;
+<p>&lt;/script&gt;
+<p>
+<p>&lt;% 程序语句; %&gt;
+
+<p>其中第一种及第二种是最常用的二个方法，在"&lt;"后加上"?"，可以加也可以不加 php 三个字符，之后就是 PHP 的代码。在代码结束后，加入"&gt;"、 "?"二符号就可以了。建议只使用这两种形式的写法。
+在写作程序时，可以把HTML标记和PHP语句交织在一起，如下面的形式：
+&lt;?php
+if ($expression) {
+    ?&gt;
+    &lt;strong&gt;This is true.&lt;/strong&gt;
+    &lt;?php
+} else {
+    ?&gt;
+    &lt;strong>This is false.&lt;/strong&gt;
+    &lt;?php
+}
+?&gt;
+<p>写作 PHP 程序最好的方法，就是先处理好纯 HTML 格式的代码之后，再将需要变量或其它处理的地方改成 PHP 程序。
+
+<p>  四  程序注释
+
+<p>在 PHP 的程序中，加入注释的方法很灵活。可以使用 C 语言、C++ 语言或者是 UNIX 的 Shell 语言的注释方式，而且也可以混合使用。这可以让每个写 PHP 网页程序的网管或程序员形成属于自己的写作风格。以下是几种书写注释的方式：
+
+&lt;?
+  程序语句; // 注释内容
+  /* 注释内容在几行中
+     注释内容      */
+  程序语句;
+  程序语句; # 注释内容
+?&gt;
+
+<p><a name="sect02"></a><font color="red">第二节    PHP 程序中的常量和变量</font>
+
+<p>  一  PHP 程序使用的数据类型
+
+<p>PHP 的数据类型有以下五种：
+
+<p>string ,  integer ,  double ,  array ,  object
+
+<p>    string 即为字符串类型，无论是单一字符或数千字的字符串都是使用这个变量定义。值得注意的是在对字符串变量赋值时，要在字符串的头尾加上双引号 。在字符串中可能用到一些特殊符号，它们表示的是一些固定的格式，详见下表：
+
+<p>符号        意义<br>
+\&quot;        双引号<br>
+\\        反斜线<br>
+\n        换行<br>
+\r        回车 CR<br>
+\t        跳位 (TAB)<br>
+
+<p>    integer 为整数类型。在 32 位的操作系统中，它的有效范围是 -2,147,483,648 到 +2,147,483,647。要使用 16 进制整数可以在面加 0x。
+
+<p>    double 为浮点数类型。在 32 位的操作系统中，它效范围是 1.7E-308 到 1.7E+308。
+
+<p>    array 为数组类型，可以是二维、三维或者多维数组，其中的元素类型可以是 string、integer 或者 double，甚至是 array。
+
+<p>object 为对象类型，目前在 PHP 中的对象不多，若论及对象，Microsoft 的 ASP 对象仍然较 PHP 的内定对象多。
+<p>  此外，还有布尔值 (boolean)，通常 1 即为 true，0 为 false。
+
+<p>   可以用函数gettype得到某个数据的类型，可以用下列函数判断某个数据是某个特定类型：is_array(), is_float(), is_int(), is_object(), 以及is_string().
+
+<p>
+<p>  二  PHP 程序的常量定义
+
+
+<p>常量是对一个简单数值的标识符号，在脚本的执行过程里，除了几个特殊常量（称为magic constants）外，它们不改变其数值。常量对大小写是敏感的，习惯上都采取大写的形式。常量名称以字母或下划线开头，后跟其它字母、数字或下划线。
+<p>可以使用define( ) 函数自行定义所需要的常量。一个常量一旦定义好后就不能改变或重新定义。常量数据只包含标量类型数据（boolean, integer, float, string）。例如:
+<br>
+&lt;?    <br>
+define("PI", "3.1415926"); <br>
+echo  PI;  <br>
+?&gt;   <br>  <br>
+<p>PHP 预定义了以下一些常数：<br>
+5个magic constants：<br>
+<p>__FILE__  ： PHP 程序文件名及其完整路径。若引用文件 (include 或 require)则在引用文件内的该常数为引用文件名，而不是引用它的文件名。
+
+<p>__LINE__  ：  PHP 程序当前行数。若引用文件 (include 或 require)则在引用文件内的该常数为引用文件的行，而不是引用它的文件行。
+
+<p>  _FUNCTION_： 当前函数名称。
+
+<p> _CLASS_:  类的名称。
+
+<p>_METHOD_： 类所使用的方法名称。
+
+<p>    预定义的核心常量：
+
+<p>PHP_VERSION  ： PHP 程序的版本，如 '5.0.3'。
+
+<p>PHP_OS  ： 执行 PHP 解析器的操作系统名称，如 'Windows2000'。
+
+<p>TRUE ： 真值 (true)。
+
+<p>FALSE ：  伪值 (false)。
+
+<p>E_ERROR ：  指向最近的实质性错误处。
+
+<p>E_WARNING： 指向最近的警告性错误处。
+
+<p>E_PARSE ： 解析语法有潜在问题处。
+
+<p>E_NOTICE ：指向发生不寻常但不一定是错误处。例如存取一个不存在的变量。
+
+<p>    这些 E_ 开头形式的常数，可以参考 error_reporting() 函数，其中有更多的相关说明。
+
+<p>标准预定义常量：  <br>
+M_PI ： 圆周率   <br>
+M_PI_2 ：圆周率/2   <br>
+M_PI_4 ：圆周率/4   <br>
+M_SQRT2 ：2的平方根  <br><br>
+
+
+<p>  三  PHP 程序的变量定义
+
+<p>    变量是以符号"$"开头的标识符，取名的规则与常量相同。目前变量名称仍不能使用中文。变量的大小写对表示的变量是有区别的，这一点对开发大型 PHP 程序的集体来说很重要，最好约定一个变量使用体系，以免因为变量大小写的问题，花许多时间去找寻出错点。
+<p>    以下为变量的使用范例：<br><br>
+
+$mystr = "学习";  <br>
+$a = 677;     <br>
+$b = 0x4d;  <br>
+$cb = 1.732;  <br>
+$xy = 8.6E+5; <br><br>
+
+$Array1 = array("Sun", "Mon", "Tue", "Wes"); <br>
+$Array2 = array("weekdays" => array("Sun", "Mon", "Tue"), <br>
+              "months" => array("Jan", "Feb", "Mar")  );  <br>
+
+<p>对变量赋值通常按数值方式，即把一个表达式赋值给一个变量时，原表达式的整体都复制到了目的变量里了，再改变其中任意一个的值，不会影响另一个的值。
+<p>对变量赋值的另一个方式是按引用方式，即新的目的变量指向原变量的地址（用符号"&"表示），相当于目的变量作为原变量的别名，一个的数值改变会影响另一个的取值。例如：
+<br>&lt;?php      <br>
+$foo = 'Bob';              // Assign the value 'Bob' to $foo  <br>
+$bar = &$foo;              // Reference $foo via $bar.   <br>
+$bar = "My name is $bar";  // Alter $bar...     <br>
+echo $bar;                                      <br>
+echo $foo;                 // $foo is altered too.   <br>
+?&gt;    <br>   <br>
+
+预定义变量： <br>
+<p>PHP提供了一些可以在任何代码里使用的变量名，
+称为预定义变量。要注意的是，其中很大一部分预定义变量
+依赖于运行代码的服务器类型极其版本和其他一些因素。
+下面列出的预定义变量是在任何范围内都可以使用的超级
+全程变量：<br><br>
+$GLOBALS：包含了代码里可以使用的所有全程变量的别名<br>
+$_SERVER： 当前代码里和服务器参数相关的变量。  <br>
+$_GET：  代码里通过GET方式传送的变量。 <br>
+$_POST：代码里通过POST方式传送的变量。 <br>
+$_COOKIE：代码里通过COOKIE方式传送的变量。   <br>
+$_FILES：  上传文件用到的变量。 <br>
+$_ENV： 服务器运行环境变量。  <br>
+$_SESSION： 当前代码里在SESSION中注册的变量。<br><br>
+
+其它很多预定义变量参考PHP手册的相关说明。<br><br>
+
+<p>在变量之间，若要转换定义，在 PHP 程序中是很自由的，直接就拿来用了，不必经过特殊的转换函数。当然，浮点数转成整数就有点牵强了，不过可以将浮点数转成字符串，也是很好处理。
+
+
+<p>  四  PHP 的变量的变量
+
+<p>    PHP 的变量使用技巧上，最令人觉得不可思议的则是变量的变量 (variable variable)。这是 PHP 语言的一大特色。
+
+<br>&lt;?  <br>
+$a = "Hello";   <br>
+$$a = "world";   <br>
+echo "$a, $Hello";   // 输出："Hello, world" <br>
+echo "$a, ${$a}";    // 还是输出： "Hello, world"  <br>
+?&gt;  <br>
+
+<p>    对浏览器端的用户在表单（ FORM） 中输入的数据，PHP是如何处理的呢？如果在 PHP 的配置文件php.ini中，将参数track_vars 设为 On ，则可以直接将表单项的名字（由其Name属性确定）作为变量名使用。如下例next.php 在执行时，系统会自动产生二个变量 $username 及 $sex，在程序中可以直接使用，而传统的 CGI 程序需要自己解析。
+<br><br>
+&lt;form action=next.php method=post&gt; <br>
+姓名: &lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;<br>
+性别: &lt;input type=&quot;text&quot; name=&quot;sex&quot;&gt;<br>
+&lt;input type=submit&gt;  <br>
+&lt;/form&gt; <br>
+
+<p>    由于 PHP 许多语法都是 C 语言的翻版，故 PHP 在使用变量时，随时都可以使用新的变量。这当然有好处与坏处：好处是使用方便、自由；坏处就是常常因这些自由而花很多时间来找出错误代码的位置。当 PHP 程序不长时问题不大，当程序在数百数千行，甚至 include 或 require 交叉好几层之后，问题就浮现出来了。因此，应该保持良好的写作习惯，避免浪费时间。
+
+
+<p><a name="sect03"></a><font color="red">第三节    PHP 程序中的运算类型</font>
+<p>  一  算术运算
+
+<p>算术运算 (arithmetic operators) 符号，就是用来处理四则运算的符号，这是最简单，也最常用的符号，尤其是数字的处理，几乎都会使用到算术运算符号。
+<p>符号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;意义 <br>
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        加法运算 <br>
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        减法运算   <br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        乘法运算  <br>
+/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       除法运算 <br>
+% &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       取余数  <br>
+++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        自身加1 <br>
+-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       自身减1 <br>
+
+
+<p>  二  字符串运算
+
+<p>    字符串运算 (string operator) 的最基本的运算符号只有一个，就是英文的句号" ."。它可以将字符串连接起来，变成合并的新字符串。此外，它还可以和赋值运算符结合成复合运算符（见下小节）。
+
+<p>  三  赋值运算
+
+<p>    赋值运算 (assignment operator) 有时会让人觉得难以理解，不过它可以让程序更精简，增加程序的执行效率。
+<p>符号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  意义 <br>
+=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        将右边的值连到左边 <br>
++=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        将右边的值加到左边 <br>
+-=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        将右边的值减到左边 <br>
+*= &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       将左边的值乘以右边 <br>
+/= &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       将左边的值除以右边 <br>
+%= &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       将左边的值对右边取余数 <br>
+.= &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       将右边的字符串加到左边 <br>
+
+<p>  四  位运算
+
+<p>    PHP 的位操作符 (bitwise operators) 共有六个，让数字做一些快速而低阶的运算。要了解更多有关位运算的知识，可以参考计算机原理方面的书籍。
+<p>符号 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;意义 <br>
+& &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       按位与 (And) <br>
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       按位或 (Or)  <br>
+^ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       按位异或 (Xor)<br>
+&lt;&lt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       向左移位   <br>
+&gt;&gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       向右移位    <br>
+~  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      取 1 的补数（Not）<br>
+<p>例如：
+<p>&lt;?php  <br>
+echo 12 ^ 9; // Outputs '5'  <br>
+echo "12" ^ "9"; // Outputs the Backspace character (ascii 8) <br>
+                 // ('1' (ascii 49)) ^ ('9' (ascii 57)) = #8   <br>
+echo "hallo" ^ "hello"; // Outputs the ascii values #0 #4 #0 #0 #0  <br>
+                        // 'a' ^ 'e' = #4  <br>
+?&gt;   <br>
+
+<p>  五  比较运算符
+
+<p>比较运算 (comparison operators) 通常用来比较两个值。
+
+<p>符号 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 意义 <br>
+&lt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       小于  <br>
+&gt;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      大于 <br>
+&lt;=  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      小于或等于 <br>
+&gt;=  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      大于或等于 <br>
+==  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      等于 <br>
+!=   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     不等于   <br>
+===  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      严格相等（类型相同，数值相等）<br>
+&lt;&gt;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      不等于 <br>
+!==   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     不严格相等（类型不相同，或者数值不相等）<br>
+
+<p>  六  逻辑运算符号
+
+<p>符号  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      意义  <br>
+&&  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      与 (And) <br>
+And &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       与 (And)  <br>
+|| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       或 (Or)   <br>
+Or &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       或 (Or)  <br>
+Xor &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       异或 (Xor) <br>
+!  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      非 (Not)  <br>
+
+<p>其中&&、||、！的优先级别比and、or、xor的高。
+
+<p>  七  其它运算符号
+
+<p>除了上述的运算符号之外，还有一些运算符号难以归类。
+
+<p>符号 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       意义 <br>
+&  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      变量的指针 (加在变量前) <br>
+@  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      不显示表达式或函数产生的错误信息 <br>
+-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       对象的方法或者属性 <br>
+=> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       数组的元素值 <br>
+? : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       三元操作符 <br>
+
+<p>    其中比较特殊的是三元操作符 ? :，以下例来解释
+
+<p>(表达式1) ? (表达式2) : (表达式3);
+
+<p>    若 表达式1 的运算结果为 true，则执行 表达式2；否则执行 表达式3。实际上它有点类以 if...else 流程，但可以让程序较精简有效率。
+
+ <p>
+<p><a name="sect04"></a><font color="red">第四节  PHP 程序中的流程控制</font>
+
+<p>    由于 PHP 的大部份语法都是继承了 C 语言的语法，因此，在流程控制方面，也非常类似 C 语言。在流程的代码段分隔符号上，都是使用&quot; { &quot;当作代码段的开头，用&quot; } &quot;当作结尾，和 C 语言相同。
+<p> PHP 语法中在每道指令结束时都要加上分号&quot;;&quot;，但是在代码段结尾符号&quot; } &quot;后面不用加上分号结束。
+
+<p>
+<p>  一  if..else 结构
+<p>
+<p>    if..else 结构有三种构造:
+<p>    第一种是只有用到 if 条件，当作单纯的判断。解释成 "如果符合某种条件则做相应的处理"。  语法如下：
+
+<p>if (表达式)<br>
+{        <br>
+  statement    <br>
+}             <br>
+
+<p>    其中的" 表达式" 为判断的条件，通常都是用逻辑运算符号 (logical operators) 当判断的条件。而 statement 为符合条件的执行代码段程序，若程序只有一行，可以省略大括号 {}。
+
+<p>    第二种是除了 if 之外，加上了 else 的条件，可解释成 "如果符合某种条件则做相应的处理，否则做另外的处理"。语法如下：
+<p>
+<p>if (表达式)  <br>
+{             <br>
+  statement1  <br>
+}          <br>
+else     <br>
+{            <br>
+  statement2  <br>
+}             <br>
+<br>
+
+<p>    第三种就是嵌套的 if..else 结构，通常用在多种决策判断时。它将数个 if..else 合并运用。例如：
+<p>&lt;?php   <br>
+if ($a &gt; $b) {  <br>
+    echo "a is bigger than b";  <br>
+} elseif ($a == $b) {         <br>
+    echo "a is equal to b";    <br>
+} else {                      <br>
+    echo "a is smaller than b";   <br>
+}                 <br>
+?&gt;                 <br>
+
+<p>程序的另外一种写法是运用冒号（： ）表示条件，如下例子：<br>
+&lt;?php if ($a == 5): ?&gt;       <br>
+A is equal to 5           <br>
+&lt;?php endif; ?&gt;  <br>
+                      <br>
+<p>  二  switch 语句
+
+<p>    switch 语句，通常处理复合式的条件判断，每个子条件，都用 case 指令代码段表示。在程序中若使用许多类似的 if 指令，可以将它综合成 switch 语句。
+
+<p>语法如下：
+
+<p>switch (表达式)<br>
+<pre>
+{
+  case 表达式1:
+    statement1;   break;
+  case 表达式2:
+    statement2;   break;
+    :
+  default:
+    statementN;   break;
+}
+</pre>
+<p>    其中的" 表达式 "条件，通常为变量名称。而 case 后的 "表达式N"，通常表示变量值。冒号后则为符合该条件要执行的代码段。注意要用 break 跳离语句，否则程序会继续执行后面的语句，即使case 后的 "表达式N"的值不为TRUE。
+<p>    在设计这种语句时，要将出现机率最大的条件放在最前面，最少出现的条件放在最后面，可以增加程序的执行效率。
+<p>
+
+<p>  三  for 循环
+<p>
+<p>    for 循环就单纯只有一种，没有变化，它的语法如下
+<pre>
+for (表达式1; 表达式2; 表达式3)
+{
+  statement
+}
+</pre>
+<p>    其中的 "表达式1" 为条件的初始值。"表达式2" 为判断的条件，通常都是逻辑表达式。"表达式3 "为执行 statement 后要执行的部份，用来改变条件，提供下次的循环判断的条件，如使循环变量加一等等。而 statement 为符合条件的执行代码段程序，若程序只有一行，可以省略大括号 {}。
+
+<p>  四  do..while 循环
+
+<p>    do..while 是重复叙述的循环，可以分成二种模式。
+<p>    最简单的就是只有 while 的循环。用来在指定的条件内，不断地重覆指定的动作。语法如下
+<pre>
+while (表达式)
+{
+  statement
+}
+</pre>
+<p>    其中的 "表达式" 为判断的条件，通常都是用逻辑表达式当判断的条件。而 statement 为符合条件的执行代码段程序，若程序只有一行，可以省略大括号 {}。
+<p>    另外一种 do..while 循环则先执行，再判断是否要继续执行，也就是说循环至少执行一次，和单用 while 的循环是不同的 (单用 while 是先判断再处理)。
+<p>    do..while 的语法如下
+<pre>
+do
+{
+  statement
+} while (表达式);
+</pre>
+
+<p>  五  foreach 数组元素循环
+
+<p>foreach是专门用于遍历数组元素的一个结构，基本使用方式有两种：
+<p>foreach (array_expression as $value) statement
+<p>foreach (array_expression as $key => $value) statement
+<p>每次循环中，当前元素的值就赋予$value，数组的内部指针增加1，总是指向下一个元素。在第二个使用方式里，当前元素的索引值也同时被赋予$key。例如：
+<p>&lt;?php
+foreach ($arr as $value) {
+    echo "Value: $value&lt;br /&gt;\n";
+}
+?&gt;
+<p>会输出数组里每个元素的值。
+
+<p><a name="sect05"></a><font color="red">第五节   PHP 程序中的函数</font>
+
+ <p>   在 PHP 中，允许程序设计者将常用的流程或者变量等元件，组织成一个固定的格式。也就是说使用者可以自行组合函数或者是对象。
+<p>    PHP 中的函数 (function) 和 C 语言一样，包括有返回值的及无返回值的。在函数的名称上，PHP 对于大小写的管制很松散。可以在定义函数时写成大写的名字，而在使用时使用小写的名字。总之，对函数而言，不用管大小写，只要注意名称没有重复就行了。
+<p>    以下就是函数的使用语法：
+<pre>
+function myfunc($arg_1, $arg_2, ..., $arg_n)
+{
+  函数执行的具体代码段;
+  return $retval;
+}
+</pre>
+<p>    在使用时，在自定的函数名称前要加入 function 保留字，表示这是在定义使用者自定义函数。之后的函数名可以是任何的英文字母开头的字符串，字符串开头不能是数字或是下划线，在第一个字母后可以是阿拉伯数字或者是下划线，当然其它的符号或是中文字不能做函数名。
+<p>    $arg_1 到 $arg_n 为函数使用的参数，参数之间使用逗号隔开。在参数后的大括号对 {}中，即为整个函数的代码段。函数若有返回值，使用 return 可将值返回。而参数可以事先定义初始值或缺省值。有定义缺省值的参数在使用函数时可以省略，但一定要放在没有设定缺省值参数的后面，否则 PHP 在解析函数时，会出现错误。
+<p>    另外就是参数的形态，只要参数是 PHP 支持的变量定义都可以使用，无论是数组、字符串、或是整数....等等。返回值也是一样。
+<p>
+
+<p><a name="sect06"></a><font color="red">第六节   PHP 程序中的引用文件</font>
+
+<p>    PHP 用引用文件的方法可以将常用的功能写成一个函数，放在文件之中，然后引用之后就可以调用这个函数了。引用文件的方法有二种：require 及 include。二种方式提供不同的使用特性。
+<p>    require 的使用方法如 require("MyRequireFile.php"); 。这个函数通常放在 PHP 程序的最前面，PHP 程序在执行前，就会先读入 require 所指定引入的文件，使它变成 PHP 程序的一部份。常用的函数，亦可用这个方法将它引入网页中。
+<p>    include 使用方法如 include("MyIncludeFile.php"); 。这个函数一般是放在流程控制的处理代码段中。PHP 程序在读到 include 的文件时，才将它读进来。这种方式，可以把程序执行时的流程简单化。
+
+</body>
+</html>

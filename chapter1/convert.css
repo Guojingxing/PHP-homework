@@ -1,0 +1,34 @@
+
+p.big {
+       font-size:  24px
+      }
+
+p.normal {
+          font-size: 18px
+         }
+
+p.exam  {
+          font-size:  24px;
+          color: rgb(220,80,0)
+        }
+
+li.big {
+       font-size:  24px
+      }
+
+dt.big {
+          font-size: 24px
+         }
+
+dd.big {
+          font-size: 20px
+         }
+
+div.exam {
+          color: rgb(220,80,0);
+          font-size: 24px
+         }
+
+pre.exam {
+           color: rgb(220,80,0)
+         }

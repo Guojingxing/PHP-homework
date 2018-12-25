@@ -1,0 +1,392 @@
+<HTML>
+<HEAD>
+   <TITLE>页面</TITLE>
+<link rel="stylesheet" type="text/css"
+      href="convert.css">
+</HEAD>
+<BODY BGCOLOR="#FFFFE0">
+
+<H1 ALIGN=CENTER>页面(PAGE)标记(TAGS)</H1>
+
+<CENTER><P>
+<HR></P></CENTER>
+
+<P><!--################## Document Structures ########################--><A NAME="document"></A></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20> HTML 文件结构(Document Structures)</H2>
+
+<p class="big">一个HTML文件包含三个部分：</p>
+
+<ol>
+<li  class="big">一个标明HTML 版本信息的行</li>
+
+<li  class="big">一个放置背景信息声明的头部HEAD</li>
+
+<li  class="big">页面内容的主体部分，由BODY元素或FRAMESET元素表示</li>
+</ol>
+
+<p class="big">一个合法的HTML文件首先声明所遵行的HTML版本，可以是以下三种
+形式之一：</p>
+
+<ul>
+<li class="big">
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd"&gt;
+</pre>
+</li>
+
+<li class="big">
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd"&gt;
+</pre>
+</li>
+
+<li class="big">
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
+        "http://www.w3.org/TR/html4/frameset.dtd"&gt;
+</pre>
+</li>
+</ul>
+<br><br>
+
+
+<h2>后续HTML文件部分的结构如下： </h2>
+<DL>
+<PRE><font size=5>&lt;HTML&gt;
+&lt;HEAD&gt;
+     &lt;title&gt;, &lt;base&gt;, &lt;link&gt;,  &lt;meta&gt; , ...
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+    HTML 文件的正文写在这里... ...
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</font>
+</PRE>
+</DL>
+
+<p class="big">大约在2004年以后，随着WEB 2.0标准的渐渐被采用，
+为了向将来兼容XML的一些标准，页面的版本信息申明部分最好采用如下内容：</p>
+
+<p class="big">
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"&gt;
+</p>
+
+<p class="big">相应的在HTML标记里要加上名域空间的申明语句：</p>
+<p class="big">
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"&gt;
+</p>
+
+<h2>TITLE元素</h2>
+<p class="big">在HEAD部分，很多与页面有关的背景信息写在这里。而且每个
+规范的HTML文件的HEAD部分必须包含title元素。title的内容最好能
+比较清楚地代表页面内容。</p>
+<h2>META元素</h2>
+<p class="big">meta是用来在HTML文档中模拟HTTP协议的响应头报文。
+meta元素有这么几个属性：name, content,http-equiv, scheme。
+name=″.....″ 表示META信息的名称，HTTP－EQUIV=″....″ 表示HTTP响应的
+标题头，content=″....″ 表示META信息的具体内容，scheme=″...″ 表示
+META信息的图解。HEAD部分可以包含多个meta元素，每一个meta元素指定一个属性名/属性值对。
+例如：</p>
+
+<p class="big">&lt;META name="Author" content="张三"&gt;</p>
+
+<p class="big">meta元素的应用之一就是指定页面的关键词以便于搜索引擎找到
+该页面。下面的例子可以分辨不同语言下的关键词：</p>
+
+<pre >
+<p class="exam" >
+&lt;-- For speakers of US English --&gt;
+&lt;META name="keywords" lang="en-us"
+         content="vacation, Greece, sunshine"&gt;
+&lt;-- For speakers of British English --&gt;
+&lt;META name="keywords" lang="en"
+         content="holiday, Greece, sunshine"&gt;
+&lt;-- For speakers of French --&gt;
+&lt;META name="keywords" lang="fr"
+         content="vacances, Greece, soleil"&gt;
+
+</p>
+
+<p class="big">
+<a href="page1_refer1.html">有效提高网页被搜索到的概率的做法</a>
+</p>
+</pre>
+
+<p class="exam"> &lt;meta name="GENERATOR" content="Microsoft FrontPage 3.0"&gt;</p>
+<p class="big">这表示该网页由什么编辑器写成。</p>
+
+
+<p class="big">可以用meta元素指定文件所用的字符集：</p>
+
+<p class="exam"> &lt;META http-equiv="Content-Type" content="text/html; charset=GB2312" &gt;</p>
+<p class="big">它起的作用是定义网页所使用的语言,浏览器根据此项，就可以选择正确的语言编码，而不需要读者
+自己在浏览器里选择。当访客浏览网页时,浏览器会自动识别并设置网页中的语言,如果网页设置的是GB码,
+而客户端没有安装GB码,这时网页就会呈现客户端所设置的浏览器默认语言。同样的,如果该网页是英语,那么charset=en。
+GB2312是指简体中文，而台湾BIG5内码的主页则是用BIG5。
+
+<p class="exam">&lt;META HTTP-EQUIV="refresh" CONTENT="60; URL=new.htm"&gt; <br>
+<p class="big">　　浏览器将在60秒后，自动转到new.htm。你可以利用这个功能，制作一个封面，在若干时间后，自动带读者来到你的目录页。
+<p class="big">　　如果URL项没有，浏览器就是刷新本页。这就实现了WWW聊天室定时刷新的特性。
+
+
+<p class="exam">&ltMETA HTTP-EQUIV="Pragma" CONTENT="no-cache"&gt <br>
+<p class="big">    强制性调用网上的最新版本。浏览器为了节约时间，在客户端
+硬盘上保存一个以前访问过的网页文件的临时版本。在客户要重新访问该文件时，浏览器会直接显示客户机硬盘上的文件
+，而不是服务器上的。如果你想让读者每次都通过直接访问服务器端的页面来阅读，就加上这句话。
+
+<p class="exam">&ltMETA HTTP－EQUIV="expires" CONTENT="TUE,15.MAR 2005 00:00 GMT"&gt <br>
+<p class="big">    META可以设置网页到期的时间,也就是说,当客户在
+浏览器中浏览网页时,首先查看本地缓冲里的页面,那么当客户浏览某一网页,而客户机的
+缓冲里又有时,那么浏览器会自动浏览缓冲区里的页面,直到META中设置的时间到期,
+这时候,浏览器才会去取得新页面。
+
+<p class="exam">&ltMETA HTTP－EQUIV="set-cookie" CONTENT="TUE,15.MAR 2005 00:00 GMT"&gt <br>
+<p class="big">    设定cookie的有效期限，如果网页过期，存盘的cookie将被删除。
+
+<p class="exam">&ltMETA HTTP－EQUIV="windows-Target" CONTENT="_top"&gt <br>
+<p class="big">    强制页面在当前窗口中以独立页面显示，可以防止自己的网页被别人当作一个frame页调用。
+<br><br>
+<p><a href="URL_protocol.html" target="_blank">关于协议类型</a></p>
+<br><br>
+<h2>LINK元素</h2>
+<p class="big">link元素只能出现在HEAD部分，用来表示当前文件与其它文件的
+连结关系，但不会有连结按钮。它的常用属性有href, rel, rev, charset。href指明要连接
+的文件的URL，rel（relationship)表示本文档到所链接的资源的指向关系，rev(reverse)定义了
+逆向的关联，表示来自链接的关系，charset表示链接对象所使用的字符集。</p>
+<p>
+链接类型的属性值及其说明<br><br>
+Alternate  &nbsp;&nbsp;&nbsp;&nbsp;  定义替换版本<br>
+Stylesheet &nbsp;&nbsp;&nbsp;&nbsp;  指向外部样式表文件<br>
+Start      &nbsp;&nbsp;&nbsp;&nbsp;  指向一组文档集合的第一篇文档<br>
+Next       &nbsp;&nbsp;&nbsp;&nbsp;  在一组线性文档中指向下一篇文档<br>
+Prev       &nbsp;&nbsp;&nbsp;&nbsp;  在一组线性文档中指向前一篇文档<br>
+Index      &nbsp;&nbsp;&nbsp;&nbsp;  指向提供当前文档目录的一篇文档<br>
+Glossary   &nbsp;&nbsp;&nbsp;&nbsp;  指向提供当前文档词汇表的一篇文档<br>
+Copyright  &nbsp;&nbsp;&nbsp;&nbsp;  指向提供当前文档版权声明的一篇文档<br>
+Chapter    &nbsp;&nbsp;&nbsp;&nbsp;  指向作为一系列文档章节的一篇文档<br>
+Section    &nbsp;&nbsp;&nbsp;&nbsp;  指向作为一系列文档章节的一篇文档<br>
+Appendix   &nbsp;&nbsp;&nbsp;&nbsp;  指向作为一系列文档附录的一篇文档<br>
+Help       &nbsp;&nbsp;&nbsp;&nbsp;  指向作为一系列文档帮助的一篇文档<br>
+Bookmark   &nbsp;&nbsp;&nbsp;&nbsp;  指向一个书签<br>
+</p>
+<div >
+<p class="big">下面是一个应用link元素的例子，当前文件是"Chapter2.html",
+其中"Index", "Next", 以及 "Prev" 是具体链接关系的类型。
+</p>
+
+<pre>
+<p class="exam">
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;HTML&gt;
+&lt;HEAD&gt;
+  &lt;TITLE&gt;Chapter 2&lt;/TITLE&gt;
+  &lt;LINK rel="Index" href="../index.html"&gt;
+  &lt;LINK rel="Next"  href="Chapter3.html"&gt;
+  &lt;LINK rel="Prev"  href="Chapter1.html"&gt;
+&lt;/HEAD&gt;
+<em>...the rest of the document...</em>
+</p>
+</pre>
+
+
+</div>
+
+<h2>BASE元素</h2>
+<p class="big">BASE元素定义文档的基础URI，为文档中其他使用相对URI表示地址的方法提供寻址的基础。使用BASE元素时，必须是在没有任何其他元素指向任何外部文
+件之前应用。由BASE元素指定的路径信息只影响出现BASE元素的
+文件本身里的链接。</p>
+
+<div >
+<p class="big">下面的例子表示了BASE元素和页面中的链接的关系：  </p>
+
+<pre>
+<p class="exam">
+
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;HTML&gt;
+ &lt;HEAD&gt;
+   &lt;TITLE&gt;Our Products&lt;/TITLE&gt;
+   &lt;BASE href="http://www.aviary.com/products/intro.html"&gt;
+ &lt;/HEAD&gt;
+
+ &lt;BODY&gt;
+   &lt;P&gt;Have you seen our &lt;A href="../cages/birds.gif"&gt;Bird Cages&lt;/A&gt;?
+ &lt;/BODY&gt;
+&lt;/HTML&gt;
+
+</p>
+</pre>
+
+<p class="big">其中的相对路径URI "../cages/birds.gif" 相当于:</p>
+
+<pre>
+<p class="exam">
+     http://www.aviary.com/cages/birds.gif
+</p>
+</pre>
+</div>
+
+<p></p>
+
+<P><!--################## LANGUAGE INFO ########################--><A NAME="lang"></A></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20> 语言字符集(Charsets)的信息
+<IMG SRC="netscape.gif" HEIGHT=14 WIDTH=80></H2>
+
+<H3>&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=#&quot;&gt;<BR>
+</H3>
+<font size=4>
+<DL compact>
+<DT>#= </DT>
+
+<DD>us-ascii, iso-8859-1, x-mac-roman, iso-8859-2, x-mac-ce,<BR>
+iso-2022-jp, x-sjis, x-euc-jp,<BR>
+euc-kr, iso-2022-kr,<BR>
+gb2312, gb_2312-80,<BR>
+x-euc-tw, x-cns11643-1, x-cns11643-2, big5 </DD>
+</DL></font>
+
+<P class="big">可在 HTML 文件中设置 MIME(Multipurpose Internet Mail Extensions，即多功能Internet 邮件扩充服务） 字符集信息。<BR>
+客户在浏览页面时，自己可以在浏览器的选项菜单内选择相应的语言编码(language encoding)。<BR>
+但是如果 HTML 文件里写明了设置，浏览器就会自动设置语言选项。<BR>
+尤其是主页里用到了<A HREF="entities.html" target="_blank">字符实体(entities)</A>，则该主页就应该写明字符集信息。<BR>
+</P>
+
+<PRE>
+</PRE>
+
+
+
+
+
+<P><!--################## Background Color ########################--><A NAME="bgcolor"></A></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20> 背景色彩和文字色彩</H2>
+
+<H3>&lt;body bgcolor=# text=# link=# alink=# vlink=#&gt;</H3>
+
+<DL><font size=5>
+<DD>bgcolor --- 背景色彩</DD>
+
+<DD>text --- 非可链接文字的色彩</DD>
+
+<DD>link --- 可链接文字的色彩</DD>
+
+<DD>alink --- 正被点击的可链接文字的色彩</DD>
+
+<DD>vlink --- 已经点击(访问)过的可链接文字的色彩</DD>
+
+<H3>#=rrggbb</H3>
+
+<DD>色彩是用 16 进制的 红－绿－蓝(red-green-blue, RGB) 值来表示。<BR>
+16 进制的数码有: 0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f.</DD>
+
+<P> </P>
+</font></DL>
+
+<H3>背景图象 &lt;body background=&quot;image-URL&quot;&gt;<BR>
+Non Scrolling Background &lt;body bgproperties=&quot;FIXED&quot;&gt; <IMG SRC="ie.gif" HEIGHT=14 WIDTH=80></H3>
+
+<PRE>
+</PRE>
+
+<P><!--################## MARGIN ########################--><A NAME="margin"></A></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP> 页面空白(Margin)
+<IMG SRC="ie.gif" HEIGHT=14 WIDTH=80></H2>
+
+<P><!------Margin-------></P>
+
+<H3>页面左边的空白 &lt;body leftmargin=#&gt;<BR>
+页面上方的空白(天头) &lt;body topmargin=#&gt; #=margin amount</H3>
+
+<PRE>
+</PRE>
+
+<P><!--################## Link ########################--><A NAME="link"></A></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP> 链接(Link)</H2>
+
+
+
+
+<P><!------link basic-------></P>
+
+<H3>基本语法 &lt;a href=&quot;URL&quot;&gt; ... &lt;/a&gt;</H3>
+
+<DL>
+<DD><TT><font size="5">这是一个<BR>
+&lt;a href=&quot;link.html&quot;&gt;链接的例子&lt;/a&gt;。 <BR>
+点一下带下划线的文字!</font></TT><BR>
+</DD>
+</DL></font>
+
+<P class="big">这是一个<A HREF="link.html">链接的例子</A>。 点一下带下划线的文字!</P>
+
+<P> </P>
+
+<PRE>
+</PRE>
+
+<P><!------link name-------></P>
+
+<H3>跳转到同一页面的另外一个地方<BR><BR>
+指明跳转的目的位置：&lt;a href=&quot;#name&quot;&gt; ... &lt;/a&gt;<BR>
+在目的位置做标记：&lt;a name=&quot;name&quot;&gt;&lt;/a&gt; </H3>
+
+<DL>
+<DD><TT><font size=5>&lt;a href=&quot;#jump-test&quot;&gt;跳转到下一个&quot;链接点&quot;&lt;/a&gt;&lt;P&gt;<BR>
+&lt;a name=&quot;jump-test&quot;&gt;下一个链接点&lt;/a&gt; </font></TT></DD>
+</DL>
+
+<P><A HREF="#jump-test">跳转到下一个&quot;链接点&quot;</A></P>
+
+<P> <A NAME="jump-test"></A>下一个链接点</P>
+
+<PRE>
+</PRE>
+
+<P><!------link name 2-------><A NAME="jump2"></A></P>
+
+<H3>跳转到另一个页面的某个地方<BR>
+&lt;a href=&quot;URL#name&quot;&gt; ... &lt;/a&gt;<BR>
+&lt;a name=&quot;name&quot;&gt;&lt;/a&gt; </H3>
+
+<DL>
+<DD><TT><font size=5>跳转到另一个页面的&lt;a href=&quot;link.html#jump-test&quot;&gt;某个地方&lt;/a&gt;。<BR>
+</font></TT></DD>
+</DL>
+
+<P>跳转到另一个页面的<A HREF="link.html#jump-test">某个地方</A>。</P>
+
+<PRE>
+</PRE>
+
+<P><!--################## Target WINDOWS ########################--><A NAME="window"></A></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP> 开一个新的(浏览器)窗口 (Target Window)
+</H2>
+
+<P><!------Target Windows-------></P>
+
+<H3>&lt;a href=&quot;URL&quot; target=&quot;Window_Name&quot;&gt; ... &lt;/a&gt;</H3>
+
+<DL>
+<DD><TT><font size=5>&lt;a href=&quot;window.html&quot; target=&quot;window_name&quot;&gt;<BR>
+开一个新窗口!<BR>
+&lt;/a&gt; </font></TT></DD>
+</DL>
+
+<P><A HREF="window.html" target="window_name">开一个新窗口!</A> </P>
+
+<PRE>
+</PRE>
+
+</BODY>
+</HTML>

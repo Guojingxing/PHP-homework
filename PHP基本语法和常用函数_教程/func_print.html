@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+        <title>打印输出函数</title>
+<link rel="stylesheet" type="text/css" href="this.css">         
+</head>
+
+<body>
+<h2 align="center">第一节  打印输出函数</h2>
+
+
+<h3>1        echo：  输出字符串和变量。</h3>
+<h3>   void echo ( string arg1 [, string argn...]) </h3>
+   <p>括号里的参数可以是多个字符串，用逗号分开，字符串里可以包含变量名， 输出时把变量的数值输出，或者输出变量名本身，与下面的 print 函数基本相同。
+<h3>2        print：输出字符串和变量。</h3>
+   <h3>int print ( string arg) </h3>
+<p>当字符串里包含变量名时，若用双引号，会将变量的数值输出，用单引号时输出变量名本身。转义字符的输出见下例。
+<pre>
+&lt;?
+$what = "荣誉归于恺撒";
+print "输出变量的取值：$what&lt;br&gt;";
+print '输出变量名本身：$what&lt;br&gt;';
+
+print "输出转义字符：\"我们被打上双引号\".";
+
+?&gt;
+
+结果是：
+
+输出变量的取值：荣誉归于恺撒
+输出变量名本身：$what
+输出转义字符："我们被打上双引号".
+</pre>
+<h3>3        printf：输出格式化字符串。</h3>
+<h3>   void printf ( string format [, mixed args]) </h3>
+<h3>4        sprintf：  输出格式化字符串。</h3>
+<h3>   string sprintf ( string format [, mixed args]) </h3>
+<p>每个格式字符串由 % 开头，后面按顺序跟着下列一个或几个说明符号：
+<br>(1)可选的填充说明符，表示填充在字符串前的字符（空格或0，缺省是空格），要填充其他字符可以用单引号包围起来。
+<br>(2)可选的对齐说明符，缺省是右端对齐，用 - 指定左端对齐。
+<br>(3)可选的宽度说明符，指定结果最少包含多少个字符。
+<br>(4)可选的精度说明符，指定浮点数的小数位数。
+<br>(5)必须的类型说明符，说明把给定参数按什么数据处理。可用的类型有：
+<pre>
+   b--把参数 args作为整数，按二进制形式输出参数 args
+   c--把参数 args作为整数，按ASCII码形式输出参数 args
+   d--把参数 args作为整数，按有符号十进制形式输出参数 args
+   u--把参数 args作为整数，按无符号二进制形式输出参数 args
+   f--把参数 args作为浮点数，按浮点数形式输出参数 args，还可以指定小数点位数。
+   o--把参数 args作为整数，按八进制形式输出参数 args
+   s--把参数 args作为字符串，按字符串形式输出参数 args
+   x--把参数 args作为整数，按小写十六进制形式输出参数 args
+   X--把参数 args作为整数，按大写十六进制形式输出参数 args
+
+例子：
+&lt;?php
+$year= 2006;
+$month = 5;
+$day = 6;
+$isodate = sprintf("%04d-%02d-%02d", $year, $month, $day);
+echo $isodate,"&lt;br&gt;";
+
+$money1 = 68.75;
+$money2 = 54.35;
+$money = $money1 + $money2;
+echo $money,"&lt;br&gt;";
+
+$formatted = sprintf("%01.2f", $money);
+echo $formatted,"&lt;br&gt;";
+
+$num = 100;
+$location = "动物园里";
+$format = " %2\$s有 %1\$d 个猴子。";
+printf($format, $num, $location);
+
+?&gt;
+
+输出结果是：
+2006-05-06
+123.1
+123.10
+动物园里有100 个猴子。
+<pre>
+
+<h3>5        vsprintf：把数组元素按格式化字符串输出。</h3>
+<h3>   string vsprintf ( string format, array args) </h3>
+
+<h3>6  vprintf：把数组元素按格式化字符串输出。</h3>
+<h3>  void vprintf ( string format, array args) </h3>
+<pre>
+   例子：
+&lt;?
+$what = array(378,"abs", 73.88,"28734","you",99945);
+$rt = vprintf("%06d  %02s  %02.3f  %8.2f  %1s--%6d",$what);
+echo "$rt";
+?&gt;
+
+输出结果是：
+000378 abs 73.880 28734.00 you-99945
+
+把上面的 vprintf 函数换成 vsprintf 函数，则结果是：
+000378 abs 73.880 28734.00 you-99945
+</pre>
+
+<h3>7  print_r： 以人容易阅读的形式输出变量。</h3>
+<h3>  bool print_r ( mixed expression [, bool return]) </h3>
+ <p>   如果给的参数expression是字符串、整数、浮点数，就原值输出，如果给的expression是数组，就把数组下标和数值显示输出，并把数组指针移动到数组末尾，可以用函数reset( )来还原到数组最开头处。
+
+<pre>
+   例子：
+&lt;pre&gt;
+&lt;?php
+    $a = array ('a' => 'apple', 'b' => 'banana', 'c' => array ('x', 'y', 'z'));
+    print_r ($a);
+?&gt;
+&lt;/pre &gt;
+
+会输出:
+
+Array
+(
+    [a] => apple
+    [b] => banana
+    [c] => Array
+        (
+            [0] => x
+            [1] => y
+            [2] => z
+        )
+)
+</pre>
+<p>  第二个可选参数  return 取true 时，就返回expression的值，而不打印输出。例如：
+<pre>
+&lt;?php
+    $b = array ('m' => 'monkey', 'foo' => 'bar', 'x' => array ('x', 'y', 'z'));
+    $results = print_r($b, true);   //$results now contains output from print_r
+?&gt;
+</pre>
+</body>
+</html>

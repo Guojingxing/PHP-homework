@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+        <title>变量操作函数</title>
+<link rel="stylesheet" type="text/css" href="this.css">         
+</head>
+
+<body>
+<h2 align="center">第八节  变量操作函数</h2>
+
+<h3>1  empty：检测变量是否为空   </h3>
+<h3>   bool empty ( mixed var) </h3>
+<p>   当var为"", 0, "0", NULL, FALSE, array(), var $var;等时，返回TRUE，否则返回FALSE。
+
+<h3>2  gettype： 取得变量的类型名称  </h3>
+<h3>   string gettype ( mixed var)  </h3>
+<p>   返回变量的类型名称，可能的值有：boolean,integer,double,string,array,object,resource,NULL,unknown。
+
+<h3>3  intval：取得变量的整数值 </h3>
+<h3>   int intval ( mixed var [, int base])  </h3>
+<p>   返回var以base指定的进制表示的整数值。Var是标量，intval不能用在array 或object类型数据上。
+
+<h3>4  floatval:  取得变量的浮点数数值  </h3>
+<h3>   float floatval ( mixed var)   </h3>
+<p>   返回var的浮点数数值。Var是标量，intval不能用在array 或object类型数据上。
+
+<h3>5  strval：取得变量的字符串数值 </h3>
+<h3>  string strval ( mixed var)   </h3>
+<p>  返回var的字符串数值。Var是标量，intval不能用在array 或object类型数据上。
+
+<h3>6  isset：检测变量是否存在  </h3>
+<h3>  bool isset ( mixed var [, mixed var [, ...]])  </h3>
+<p>  若变量var存在，返回TRUE，否则返回FALSE。
+
+<h3>7  unset：删除已有变量 </h3>
+<h3>  void unset ( mixed var [, mixed var [, mixed ...]])</h3>
+<p>  该函数删除指定的变量。例如：
+<pre>
+  &lt;?php
+    // destroy a single variable
+  unset($foo);
+
+  // destroy a single element of an array
+   unset($bar['quux']);
+
+  // destroy more than one variable
+  unset($foo1, $foo2, $foo3);
+  ?&gt;
+</pre>
+<h3>8  var_dump：显示变量的相关信息   </h3>
+<h3>  void var_dump ( mixed expression [, mixed expression [, ...]])</h3>
+<p>  该函数显示变量的结构形式，包括其数据类型和数值。例如：
+<pre>
+&lt;?php
+$a = array (1, 2, array ("a", "b", "c"));
+var_dump($a);
+?&gt;
+输出：
+array(3) {
+  [0]=>
+  int(1)
+  [1]=>
+  int(2)
+  [2]=>
+  array(3) {
+    [0]=>
+    string(1) "a"
+    [1]=>
+    string(1) "b"
+    [2]=>
+    string(1) "c"
+  }
+}
+又例如：
+&lt;?php
+
+$b = 3.1;
+$c = true;
+var_dump($b, $c);
+
+?&gt;
+输出：
+float(3.1)
+bool(true)
+
+</pre>
+
+</body>
+</html>

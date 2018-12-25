@@ -1,0 +1,307 @@
+<HTML>
+<HEAD>
+   <TITLE>字体</TITLE>
+<link rel="stylesheet" type="text/css"
+      href="convert.css">
+
+</HEAD>
+<BODY BGCOLOR="#FFFFE0">
+
+<H1 ALIGN=CENTER>字体(FONT)标记(TAGS)</H1>
+
+<HR>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP>短语元素: EM, STRONG, DFN, CODE, SAMP, KBD,VAR,
+CITE, ABBR, ACRONYM</H2>
+
+<dl>
+<dt class="big"><b>EM:</b></dt>
+
+<dd class="big">表示强调。字体出现斜体效果。</dd>
+
+<dt class="big"><b>STRONG:</b></dt>
+
+<dd class="big">表示加重语气。产生字体加粗的效果。</dd>
+
+<dt class="big"><b>CITE:</b></dt>
+
+<dd class="big">标记引述内容，以斜体字显示。</dd>
+例如：<br>
+<cite>TIME</cite>  gave its review of the film  <cite>Gone with the wind</cite>
+ <br>
+
+<dt class="big"><b>DFN:</b></dt>
+
+<dd class="big">术语定义，以斜体字显示。</dd>
+
+<dt class="big"><b>CODE:</b></dt>
+
+<dd class="big">表示程序代码，字体稍为加宽，加宽效果不一定明显看得出。</dd>
+
+<dt class="big"><b>SAMP:</b></dt>
+
+<dd class="big">表示样例，字体稍为加宽，加宽效果不一定明显看得出。</dd>
+
+<dt class="big"><b>KBD:</b></dt>
+
+<dd class="big">表示有待用户从键盘输入的文字，字体稍为加宽，单一空白。</dd>
+
+<dt class="big"><b>VAR:</b></dt>
+
+<dd class="big">表示变量，以斜体字显示。</dd>
+
+<dt class="big"><b>ABBR:</b></dt>
+
+<dd class="big">表示简写，文字效果无什么特殊。</dd>
+例如：<br>
+<abbr title="United Nations">U.N</abbr>
+ <br>
+<dt class="big"><b>ACRONYM:</b></dt>
+
+<dd class="big">表示词头缩写词，文字效果无什么特殊。</dd>
+</dl>
+
+
+<H2>引用: BLOCKQUOTE 和 Q 元素</H2>
+
+<p class="big">这两个标记都表示引用的文本。BLOCKQUOTE 定义一个块引用，应用于较长文本的
+引用，属于块级元素，占据一个较大的页面区间，且缩进显示。
+Q 应用于较短的文本，属于行内元素。</p>
+
+<div >
+<p class="big"> 下面的例子是Q元素的嵌套运用：</p>
+
+<pre>
+<p class="exam">
+John said, &lt;Q lang="en-us"&gt;I saw Lucy at lunch, she told me
+&lt;Q lang="en-us"&gt;Mary wants you
+to get some ice cream on your way home.&lt;/Q&gt; I think I will get
+some at Ben and Jerry's, on Gloucester Road.&lt;/Q&gt;
+</p>
+</pre>
+
+<p class="big"> 页面效果如下：</p>
+
+<pre>
+<p class="big">
+  John said, "I saw Lucy at lunch, she told me 'Mary wants you
+  to get some ice cream on your way home.' I think I will get some
+  at Ben and Jerry's, on Gloucester Road."
+</p>
+</pre>
+
+<p>把上面例子中的Q元素换成BLOCKQUOTE元素，则显示在页面中的效果如下：</p>
+<pre>
+<p class="exam">
+John said, <BLOCKQUOTE lang="en-us"> I saw Lucy at lunch, she told me
+<BLOCKQUOTE lang="en-us">Mary wants you
+to get some ice cream on your way home.</BLOCKQUOTE> I think I will get
+some at Ben and Jerry's, on Gloucester Road.</BLOCKQUOTE>
+</p>
+</pre>
+
+</div>
+
+
+
+
+<P><!--################## HEADER ########################--><A NAME="header"></A></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP> 标题字体(Header)</H2>
+
+<H3>&lt;h#&gt; ... &lt;/h#&gt; #=1, 2, 3, 4, 5, 6</H3>
+
+<H1><TT><FONT SIZE=+0>&lt;h1&gt;今天天气真好！&lt;/h1&gt; </FONT></TT>今天天气真好！</H1>
+
+<H2><TT><FONT SIZE=+0>&lt;h2&gt;今天天气真好！&lt;/h2&gt; </FONT></TT>今天天气真好！</H2>
+
+<H3><TT><FONT SIZE=+0>&lt;h3&gt;今天天气真好！&lt;/h3&gt; </FONT></TT>今天天气真好！</H3>
+
+<H4><TT><FONT SIZE=+0>&lt;h4&gt;今天天气真好！&lt;/h4&gt; </FONT></TT>今天天气真好！</H4>
+
+<H5><TT><FONT SIZE=+0>&lt;h5&gt;今天天气真好！&lt;/h5&gt; </FONT></TT>今天天气真好！</H5>
+
+<H6><TT><FONT SIZE=+0>&lt;h6&gt;今天天气真好！&lt;/h6&gt; </FONT></TT>今天天气真好！</H6>
+
+<UL>
+<LI>&lt;hn&gt;---&lt;/hn&gt; 这些标记显示黑体字。</LI>
+
+<LI>&lt;hn&gt;---&lt;/hn&gt; 这些标记自动插入一个空行，不必用 &lt;p&gt;
+标记再加空行。<BR>
+因此在一行中无法使用不同大小的字体。</LI>
+</UL>
+
+<PRE>
+</PRE>
+
+<P><!--################## FONT SIZE ########################--><A NAME="font_size"></A></P>
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP> 字体大小</H2>
+<H3>&lt;font size=#&gt; ... &lt;/font&gt; #=1, 2, 3, 4, 5, 6, 7 or +#,
+-#<BR>
+&lt;basefont size=#&gt; #=1, 2, 3, 4, 5, 6, 7</H3>
+
+<p class="big">&lt;basefont&gt;用于设置整个页面里的基础字体。它作用于除标题以外所有跟在它之后的文字。(普遍）</p>
+<p class="big">&lt;font &gt; ... &lt;/font&gt;用于设置页面里局部文字（即省略号位置处的文字）的大小、颜色等属性。（特殊）</p>
+
+<P><TT><font size=5>&lt;font size=7&gt;今天天气真好！&lt;/font&gt; </font></TT><FONT SIZE=+4>今天天气真好！</FONT></P>
+
+<P> <TT><font size=5>&lt;font size=6&gt;今天天气真好！&lt;/font&gt; </font></TT><FONT SIZE=+3>今天天气真好！</FONT></P>
+
+<P> <TT><font size=5>&lt;font size=5&gt;今天天气真好！&lt;/font&gt; </font></TT><FONT SIZE=+2>今天天气真好！</FONT></P>
+
+<P> <TT><font size=5>&lt;font size=4&gt;今天天气真好！&lt;/font&gt; </font></TT><FONT SIZE=+1>今天天气真好！</FONT></P>
+
+<P> <TT><font size=5>&lt;font size=3&gt;今天天气真好！&lt;/font&gt; </font></TT><FONT SIZE=+0>今天天气真好！</FONT></P>
+
+<P> <TT><font size=5>&lt;font size=2&gt;今天天气真好！&lt;/font&gt; </font></TT><FONT SIZE=-1>今天天气真好！</FONT></P>
+
+<P> <TT><font size=5>&lt;font size=1&gt;今天天气真好！&lt;/font&gt; </font></TT><FONT SIZE=-2>今天天气真好！</FONT></P>
+
+<P> </P>
+
+<PRE>
+</PRE>
+
+<P><!--################## Physical Style ########################--><A NAME="physical"></A></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP> 实体字体标记(Physical Style)</H2>
+
+<P><font size=5>&lt;b&gt;今天天气真好！&lt;/b&gt; </font><B>今天天气真好！</B></P>
+
+<P><font size=5> &lt;i&gt;今天天气真好！&lt;/i&gt; </font><I>今天天气真好！</I></P>
+
+<P><font size=5> &lt;u&gt;今天天气真好！&lt;/u&gt; </font><U>今天天气真好！</U></P>
+
+<P><font size=5> &lt;ins&gt;今天天气真好！&lt;/ins&gt; </font><INS>今天天气真好！</INS></P>
+
+<P><font size=5> &lt;sup&gt;今天天气真好！&lt;/sup&gt; </font><SUP>今天天气真好！</SUP></P>
+
+<P><font size=5> &lt;sub&gt;今天天气真好！&lt;/sub&gt; </font><SUB>今天天气真好！</SUB></P>
+
+<P><font size=5> &lt;strike&gt;今天天气真好！&lt;/strike&gt; </font><STRIKE>今天天气真好！</STRIKE></P>
+
+<P><font size=5> &lt;del&gt;今天天气真好！&lt;/del&gt; </font><DEL>今天天气真好！</DEL></P>
+
+<P><font size=5> &lt;tt&gt;I will go to there right now!&lt;/tt&gt; </font><TT>I will go to there right now!</TT>（设置等宽字体）</P>
+
+<P> </P>
+
+<PRE>
+</PRE>
+
+<P><!--################## Logical Style ########################--><A NAME="logical"></A></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP> 逻辑字体标记(Logical Style) </H2>
+
+<P><font size=5> &lt;strong&gt;今天天气真好！&lt;/strong&gt; </font><B>今天天气真好！</B></P>
+
+<P><font size=5> &lt;small&gt;今天天气真好！&lt;/small&gt; </font><FONT SIZE=-1>今天天气真好！</FONT></P>
+
+<P><font size=5> &lt;big&gt;今天天气真好！&lt;/big&gt; </font><FONT SIZE=+1>今天天气真好！</FONT></P>
+
+<PRE>
+</PRE>
+<br>
+<P>实体标记有固定的显示效果，逻辑标记则依不同浏览器而不同。多个实体标记亦可有效标示同一字句，逻辑标记则通常於旧浏览器不能有效显示多重的标示。 </P>
+<P><!--################## Size & Style Tags Combination ########################--><A NAME="combi"></A></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP> 指定“字体大小”的标记和“指定字体”的标记的组合使用</H2>
+
+<PRE><font size=&quot;5&quot;>&lt;i&gt;&lt;font size=&quot;5&quot;&gt;
+        &lt;b&gt;今天&lt;/b&gt; 天气&lt;font size=&quot;6&quot;&gt; 真好！&lt;/font&gt;
+&lt;/font&gt;&lt;/i&gt;</font></PRE>
+
+<P><I><FONT SIZE=+2><B>今天</B> 天气 </FONT><FONT SIZE=+3>真好！</FONT></I>
+</P>
+
+<PRE>
+</PRE>
+
+<P><!--################## Font Color ########################--><A NAME="fontcolor"></A></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP> 字体颜色
+</H2>
+
+<P><!------16-------></P>
+
+<H3>指定颜色 &lt;font color=#&gt; ... &lt;/font&gt;</H3>
+
+<DL>
+<DD>#=rrggbb 16 进制数码，或者是下列预定义色彩：<BR>
+<FONT COLOR="#000000">Black</FONT>, <FONT COLOR="#808000">Olive</FONT>,
+<FONT COLOR="#008080">Teal</FONT>, <FONT COLOR="#FF0000">Red</FONT>, <FONT COLOR="#0000FF">Blue</FONT>,
+<FONT COLOR="#800000">Maroon</FONT>, <FONT COLOR="#000080">Navy</FONT>,
+<FONT COLOR="#808080">Gray</FONT>, <FONT COLOR="#00FF00">Lime</FONT>, <BR>
+<FONT COLOR="#FF00FF">Fuchsia</FONT>, <FONT COLOR="#FFFFFF">White</FONT>,
+<FONT COLOR="#008000">Green</FONT>, <FONT COLOR="#800080">Purple</FONT>,
+<FONT COLOR="#C0C0C0">Silver</FONT>, <FONT COLOR="#FFFF00">Yellow</FONT>,
+<FONT COLOR="#00FFFF">Aqua</FONT> </DD>
+</DL>
+
+<P><TT><font size=5>&lt;font color=&quot;#FF0000&quot;&gt;被修饰的文字&lt;/font&gt; &amp; <BR>
+&lt;font color=&quot;Red&quot;&gt;被修饰的文字&lt;/font&gt; </font></TT></P>
+
+<P><FONT COLOR="#FF0000">被修饰的文字</FONT> &amp; <FONT COLOR="#FF0000">被修饰的文字</FONT>
+</P>
+
+<PRE>
+</PRE>
+
+<P><!--################## Font Face ########################--><A NAME="fontface"></A></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP> 客户端字体(Font Face)
+</H2>
+
+<P><!------face-------></P>
+
+<H3>&lt;font face=&quot;#, #, ..., #&quot;&gt; ... &lt;/font&gt;<BR>
+#=客户端可获得的字体</H3>
+
+<P><TT><font size=5>&lt;font face=&quot;Arial, Helvetica&quot;&gt; Hellow World!&lt;/font&gt;
+</font></TT></P>
+
+<P><FONT FACE="Arial, Helvetica">Hellow World!</FONT> </P>
+
+<DL>
+<DD><A HREF="face.html">客户端字体(Font Face)示例</A> </DD>
+</DL>
+
+<PRE>
+</PRE>
+
+<P><!--################## ENTITIES ########################--><A NAME="entities"></A></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP> 字符实体(Entities) </H2>
+
+<P><!------ &keyword;-------></P>
+
+<H3>&amp;#; #=字符实体名称 或者 ascii 值</H3>
+
+
+<H4>几个常用的HTML2.0 的字符：</H4>
+
+<PRE><font size="5">
+&amp;amp;           &amp;
+&amp;lt;            &lt;
+&amp;gt;            &gt;
+&amp;quot;          &quot;
+&amp;reg;           &reg;
+&amp;copy;          &copy;
+&amp;trade;         &trade;
+&amp;nbsp;         空格
+&amp;yen;           &yen;
+
+</font></PRE>
+
+
+<H4><A HREF="entities.html#key20">HTML2.0 字符实体名称列表</A></H4>
+
+<H4><A HREF="entities.html#key32">HTML3.2 字符实体名称列表</A></H4>
+
+<H4><A HREF="entities.html#ISO">ISO 字符实体名称列表</A></H4>
+
+<PRE>
+</PRE>
+
+</BODY>
+</HTML>

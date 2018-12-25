@@ -1,0 +1,239 @@
+<HTML>
+<HEAD>
+   <TITLE> 多媒体页面</TITLE>
+<link rel="stylesheet" type="text/css"
+      href="convert.css">
+
+</HEAD>
+<BODY BGCOLOR="#D4D4D4" onLoad="alert('本页面的效果必须在 Microsoft Internet Explorer 中才能看到 :-(((')">
+
+<H1 ALIGN=CENTER>多媒体页面(Alternative Inline Elements)</H1>
+
+<CENTER><P>
+<HR></P></CENTER>
+
+<P><!--################## EMBED ########################--><A NAME="embed"></A></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20> 嵌入多媒体文本(EMBED) </H2>
+
+<P><!------Embed-------></P>
+
+<H2>基本语法 &lt;embed src=#&gt; #=URL</H2>
+
+<P class="big">本标记可以用来在主页中嵌入多媒体文本，如：<BR>
+电影(movie), 声音(sound), 虚拟现实语言(vrml)... ... <BR>
+体会 &lt;embed&gt; 标记，您需要把 plugin 安装完备。<BR>
+<PRE>
+</PRE>
+
+<P><!--################## BACKGROUND SOUND ########################--><A NAME="bgs"></A></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20> 背景音乐 <IMG SRC="ie.gif" HEIGHT=14 WIDTH=80></H2>
+
+<P><!------bgsound-------></P>
+
+<H2>&lt;bgsound src=#&gt; #=WAV 文件的 URL<BR>
+&lt;bgsound loop=#&gt; #=循环数</H2>
+
+<DL>
+<PRE class="exam">
+<font size=5>
+&lt;bgsound src=&quot;sound.wav&quot; loop=3&gt;
+</font>
+</PRE>
+</DL>
+
+<P><A HREF="sound.html" target="_blank">示例1</A> </P>
+
+<div>更全面的方法是用&lt;embed&gt; 标记，其语法如下：</div>
+<p class="big"> &lt;EMBED src="音乐文件名称及路径" autostart="true/false" loop="循环次数" width="控制面板的宽" height="控制面板的高" ></p>
+<p class="big"> 下表给出有关上面的语法的一些具体的值和含义：</p>
+<table width="95%" border="1" align="center">
+        <td width="15%" valign="top"> src </td>
+    <td width="80%"> 音乐文件的路径及文件名； </td>
+    <tr>
+    <td width="15%" valign="top"> autostart </td>
+    <td width="80%"> true为音乐文件上传完后自动开始播放，默认为false（否） </td>
+    <tr>
+    <td width="15%" valign="top"> loop </td>
+    <td width="80%"> true为无限次重播，false为不重播，某一具体值（整数）为重播多少次 </td>
+    <tr>
+    <td width="15%" valign="top"> volume </td>
+    <td width="80%"> 取值范围为"0-100"，设置音量，默认为系统本身的音量 </td>
+    <tr>
+    <td width="15%" valign="top"> starttime </td>
+    <td width="80%"> "分：秒"，设置歌曲开始播放的时间，如，starttime="00:10"，从第10秒开始播放 </td>
+    <tr>
+    <td width="15%" valign="top"> endtime </td>
+    <td width="80%">  "分：秒"，设置歌曲结束播放的时间 </td>
+    <tr>
+    <td width="15%" valign="top"> width </td>
+    <td width="80%"> 控制面板的宽 </td>
+    <tr>
+    <td width="15%" valign="top"> height </td>
+    <td width="80%"> 控制面板的高 </td>
+    <tr>
+    <td width="15%" valign="top"> controls </td>
+    <td width="80%"> 控制面板的外观controls="console/smallconsole/playbutton/
+         pausebutton/stopbutton/volumelever"
+        <table align="center" width="95%" border="0">
+                <td width="30%"> ·console </td>
+                <td width="70%"> 正常大小的面板
+                    </td>
+                <tr>
+                <td width="30%"> ·smallconsole </td>
+                <td width="70%"> 较小的面板 </td>
+                <tr>
+                <td width="30%"> ·playbutton </td>
+                <td width="70%"> 显示播放按钮 </td>
+                <tr>
+                <td width="30%"> ·pausebutton </td>
+                <td width="70%"> 显示暂停按钮 </td>
+        <tr>
+        <td width="30%"> ·stopbutton </td>
+        <td width="70%"> 显示停止按钮 </td>
+        <tr>
+        <td width="30%"> ·volumelever </td>
+        <td width="70%"> 显示音量调节按钮 </td>
+     </table>
+     </td>
+     <tr>
+     <td width="15%" valign="top"> hidden </td>
+     <td width="80%"> 为true时可以隐藏面板
+     </td>
+</table>
+<br><br>
+<P><A HREF="sound2.html" target="_blank">示例2</A> </P><br>
+
+<PRE>
+</PRE>
+
+<P><!--################## Movie ########################--><A NAME="basic"></A></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20>插入视频剪辑 <IMG SRC="ie.gif" HEIGHT=14 WIDTH=80></H2>
+
+<P><!------Basic-------></P>
+
+<H3>&lt;img src=&quot;url.gif&quot; dynsrc=&quot;url.avi&quot;&gt;</H3>
+用 url.avi 这一 AVI(Video for MS－WINDOWS) 文件来播放视频；<BR>
+用 url.gif 这一 GIF 图象作为视频的封面，即：在浏览器<BR>
+尚未完全读入 AVI 文件时，先在 AVI 播放区域显示该图象。<BR>
+
+
+<DL>
+<PRE class="exam">
+<font size=5>&lt;img src=&quot;SAMPLE-S.GIF&quot; dynsrc=&quot;SAMPLE-S.AVI&quot;&gt;
+</font>
+</PRE>
+</DL>
+
+<P><IMG SRC="SAMPLE-S.GIF" dynsrc="SAMPLE-S.AVI" HEIGHT=120 WIDTH=160>
+</P>
+
+<PRE>
+</PRE>
+
+<P><!------start-------></P>
+
+<H3>何时开始播放 AVI &lt;img start=#&gt; #=fileopen, mouseover</H3>
+
+<P class="big">缺省值是 #=fileopen，即在链接到含本标记的页面(如本页)时开始播放 AVI。<P>
+mouseover 是指您把鼠标移到 AVI 播放区域之上时才开始播放 AVI。<P>
+也可以两者同时设置：&lt;img start=fileopen,mouseover&gt;<P>
+另外，用鼠标在 AVI 播放区域点击一下，也将令浏览器开始播放该 AVI。</P>
+
+<P> </P>
+
+<DL>
+<PRE class="exam">
+<font size=5>&lt;img src=&quot;SAMPLE-S.GIF&quot; dynsrc=&quot;SAMPLE-S.AVI&quot; start=mouseover&gt;
+</font></PRE>
+</DL>
+
+<P><IMG SRC="SAMPLE-S.GIF" dynsrc="SAMPLE-S.AVI" start="mouseover" HEIGHT=120 WIDTH=160>
+</P>
+
+<PRE>
+</PRE>
+
+
+<P><!------loop-------></P>
+
+<H3>循环播放 &lt;img loop=#&gt;</H3>
+
+<P>&lt;loop=infinite&gt; 将循环播放不止。</P>
+
+<P> </P>
+
+<DL>
+<PRE><font size=5>&lt;img src=&quot;SAMPLE-S.GIF&quot; dynsrc=&quot;SAMPLE-S.AVI&quot; loop=3&gt;
+</font></PRE>
+</DL>
+
+<P><IMG SRC="SAMPLE-S.GIF" dynsrc="SAMPLE-S.AVI" loop="3" HEIGHT=120 WIDTH=160>
+</P>
+
+<P><A HREF="video.html" target="_blank">嵌入视频文件示例</A> </P><br>
+
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20>使用Object元素插入多媒体剪辑 </H2>
+<p class="big">在页面上包含多媒体内容时，使用Object元素是最通用的，其
+主要的属性参数有：</p>
+<dl>
+<dt class="big">classid</dt>
+<dd class="big">指明安装所需要的插件的编号。</dd>
+<dt class="big">codebase</dt>
+<dd class="big">指明安装所需要的插件的路径。</dd>
+<dt class="big">data</dt>
+<dd class="big">多媒体内容的URI。</dd>
+<dt class="big">type</dt>
+<dd class="big">多媒体内容的数据类型。</dd>
+<dt class="big">standby</dt>
+<dd class="big">当下载多媒体内容时显示的说明性文字。</dd>
+</dl>
+<br><br>
+<p class="big">在用Object元素呈现多媒体内容时，还可以使用Param元素对
+其进行必要的初始化。</p>
+<br>
+
+<div>
+<pre class="exam">
+<font size="5" >
+    以下是运用Flash软件做的电影文件输出为网页时的代码：
+
+&ltHTML&gt
+&ltHEAD&gt
+&ltmeta http-equiv=Content-Type content="text/html;  charset=GB2312"&gt
+&ltTITLE&gtshowtext&lt/TITLE&gt
+&lt/HEAD&gt
+&ltBODY bgcolor="#FFCCFF"&gt
+&lt!-- URL's used in the movie--&gt
+&lt!-- text used in the movie--&gt
+&ltOBJECT
+   classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+   codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
+ WIDTH="600" HEIGHT="400" id="showtext" ALIGN="center"&gt
+ &ltPARAM NAME=movie VALUE="showtext.swf"&gt
+ &ltPARAM NAME=quality VALUE=high&gt
+ &ltPARAM NAME=bgcolor VALUE=#FFCCFF&gt
+ &ltEMBED src="showtext.swf"
+     quality=high bgcolor=#FFCCFF
+     WIDTH="600" HEIGHT="400" NAME="showtext" ALIGN="center"
+     TYPE="application/x-shockwave-flash"
+     PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer"&gt
+ &lt/EMBED&gt
+&lt/OBJECT&gt
+&lt/BODY&gt
+&lt/HTML&gt
+</font>
+</pre>
+</div>
+
+<font size=5"" >
+<a href="media1.html" target="_blank">用Object标记嵌入多媒体内容实例1</a><br>
+
+<a href="media2.html" target="_blank">用Object标记嵌入多媒体内容实例2</a><br>
+
+</font>
+</BODY>
+</HTML>

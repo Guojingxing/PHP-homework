@@ -1,0 +1,284 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+        <title>数学运算的有关函数</title>
+<link rel="stylesheet" type="text/css" href="this.css">         
+</head>
+
+<body>
+<h2 align="center">第三节  数学运算的有关函数</h2>
+
+<a name="s31"></a><p>一  简单算术运算
+<h3>1        bcadd： 两个任意精度的数相加。   </h3>
+<h3>   string bcadd ( string left_operand, string right_operand [, int scale]) </h3>
+<p>   该函数把left_operand加到right_operand上，结果以字符串形式返回，可选参数scale指定结果中小数点后保留的位数。例子：
+<pre>
+&lt;?php
+$a = 1.234;
+$b = 5;
+echo bcadd($a, $b);     // 6
+echo bcadd($a, $b, 4);  // 6.2340
+?&gt;
+</pre>
+<h3>2        bcsub：两个任意精度的数相减。   </h3>
+<h3>   string bcsub ( string left_operand, string right_operand [, int scale])   </h3>
+ <p>  从left_operand里减去right_operand，结果以字符串形式返回，可选参数scale指定结果中小数点后保留的位数。例子：
+<pre>
+&lt;?php
+
+$a = 1.234;
+$b = 5;
+
+echo bcsub($a, $b);     // -3
+echo bcsub($a, $b, 4);  // -3.7660
+
+?&gt;
+</pre>
+<h3>3        bcmul：两个任意精度的数相乘。     </h3>
+<h3>   string bcmul ( string left_operand, string right_operand [, int scale])   </h3>
+ <p>  将left_operand和right_operand相乘，结果以字符串形式返回，可选参数scale指定结果中小数点后保留的位数。例子：
+<pre>
+&lt;?php
+echo bcmul(1.34747474747, 35, 3) . "\n";//结果为： 47.162
+echo bcmul(2, 4);                       //结果为： 8
+?&gt;
+</pre>
+<h3>4        bcdiv：两个任意精度的数相除。 </h3>
+<h3>   string bcmul ( string left_operand, string right_operand [, int scale])</h3>
+<p>   left_operand被right_operand相除，结果以字符串形式返回，可选参数scale指定结果中小数点后保留的位数。例子：
+<pre>
+&lt;?php
+
+echo bcdiv(105, 6.55957, 3);  // 16.007
+
+?&gt;
+</pre>
+<h3>5  bcmod： 求两个任意精度数相除后的余数。</h3>
+<h3>   string bcmod ( string left_operand, string modulus) </h3>
+<p>   返回left_operand被modulus相除后的余数。例子：
+<pre>
+&lt;?php
+echo bcmod(4, 2) . "\n";  //结果为：0
+echo bcmod(2, 4);         //结果为：2
+?&gt;
+</pre>
+<h3>5        bcpow： 幂函数运算。  </h3>
+<h3>   string bcpow ( string x, string y [, int scale]) </h3>
+<p>   返回x的y次幂，结果以字符串形式返回，可选参数scale指定结果中小数点后保留的位数。例子：
+<pre>
+&lt;?php
+
+echo bcpow(4.2, 3, 2); //结果为：74.08
+
+?&gt;
+</pre>
+<h3>6        bcsqrt：  平方根运算。 </h3>
+<h3>   string bcsqrt ( string operand [, int scale]) </h3>
+<p>   返回operand的平方根值，结果以字符串形式返回，可选参数scale指定结果中小数点后保留的位数。例子：
+<pre>
+   &lt;?php
+     echo bcsqrt(2, 3); //结果为：1.414
+    ?&gt;
+</pre>
+<h3>7        sqrt： 求平方根。</h3>
+<h3>   float sqrt ( float arg) </h3>
+<p>   返回参数arg的平方根。
+
+<h3>8        pow： 求幂。       </h3>
+<h3>   number pow ( number base, number exp)  </h3>
+<p>   返回base的exp次幂。如果给的参数无法计算，则返回false。
+
+<h3>9        abs： 求绝对值。    </h3>
+<h3>   number abs ( mixed number) </h3>
+<p>   返回参数number的绝对值，若参数number是浮点数，返回的也是浮点数，否则返回整数。
+
+<h3>10        pi： 得到圆周率数值。</h3>
+<h3>   float pi ( void )     </h3>
+<p>   返回圆周率数值的近似值，和常数M_PI的取值一致。
+
+<a name="s32"></a><p>  二  三角函数
+<h3>1        sin： 求正弦值。 </h3>
+<h3>   float sin ( float arg)   </h3>
+ <p>  返回参数arg（以弧度数值表示）的正弦值。例子：
+ <pre>
+ &lt;?php
+echo sin(deg2rad(60));  //  0.866025403 ...
+echo sin(60);           // -0.304810621 ...
+
+?&gt;
+</pre>
+<h3>2        cos： 求余弦值。  </h3>
+<h3>   float cos ( float arg) </h3>
+<p>   返回参数arg（以弧度数值表示）的余弦值。例子：
+<pre>
+&lt;?php
+echo cos(M_PI); // -1
+?&gt;
+</pre>
+<h3>3        tan： 求正切值。  </h3>
+<h3>   float tan ( float arg)   </h3>
+<p>   返回参数arg（以弧度数值表示）的正切值。
+
+<h3>4        asin： 求反正弦值。     </h3>
+<h3>   float asin ( float arg)    </h3>
+<p>   返回以弧度数值表示的参数arg的反正弦值。
+
+<h3>5        acos： 求反余弦值。  </h3>
+<h3>   float acos ( float arg)   </h3>
+ <p>  返回以弧度数值表示的参数arg的反余弦值。
+
+<h3>6        atan： 求反正切值。  </h3>
+<h3>   float atan ( float arg)    </h3>
+<p>   返回以弧度数值表示的参数arg的反正切值。
+
+<h3>7        deg2rad： 把角度值转换成弧度值。  </h3>
+<h3>   float deg2rad ( float number)   </h3>
+<p>   返回参数number的弧度数值。
+
+<h3>8        rad2deg： 把弧度值转换成角度值。 </h3>
+<h3>   float rad2deg ( float number)    </h3>
+<p>   返回参数number的角度数值。
+
+<a name="s33"></a><p>  三  指数与对数函数
+<h3>1        log： 求自然对数。            </h3>
+<h3>   float log ( float arg [, float base])   </h3>
+<p>   返回参数arg的自然对数，若给定可选参数base，则返回以base为底的对数。
+
+<h3>2  log10：求以10为底的对数。  </h3>
+<h3>   float log10 ( float arg)  </h3>
+<p>   返回回参数arg的以10为底的对数。
+
+<h3>3   exp: 计算以e为底的幂。 </h3>
+<h3>   float exp ( float arg)  </h3>
+<p>   返回e的arg次幂。
+
+<a name="s34"></a><p>  四  数制转换
+<h3>1        base_convert： 进行数制转换。 </h3>
+<h3>   string base_convert ( string number, int frombase, int tobase)</h3>
+<p>   把参数number从frombase进制转换到tobase。Frombase和tobase的取值范围为2到36，表示比10 大的数位用字母a-z，其中a代表10，b代表11，z代表35。例子：
+<pre>
+&lt;?php
+$hexadecimal = 'A37334';
+echo base_convert($hexadecimal, 16, 2);
+?&gt;
+输出结果：
+101000110111001100110100
+</pre>
+<h3>2        bindec： 把二进制数转换成十进制数。 </h3>
+<h3>   int bindec ( string binary_string)    </h3>
+<p>   返回二进制数binary_string的十进制值。例子：
+<pre>
+&lt;?php
+echo bindec('111');  //结果为：7
+?&gt;
+</pre>
+<h3>3  decbin： 把十进制数转换成二进制数。 </h3>
+<h3>   string decbin ( int number)   </h3>
+<p>   返回十进制数number的二进制数码。最大可被转换的十进制数为4294967295，即32个1代表的二进制数。例子：
+<pre>
+&lt;?php
+echo decbin(12) . "\n";  //结果为：1100
+echo decbin(26);         //结果为：11010
+?&gt;
+</pre>
+<h3>4  dechex：把十进制数转换成十六进制数。 </h3>
+<h3>   string dechex ( int number)  </h3>
+<p>   返回十进制数number的十六进制数码。最大可被转换的十进制数为2147483647，即十六进制数码"7fffffff "能表示的数。
+
+<h3>5  decoct：把十进制数转换成八进制数。 </h3>
+<h3>   string decoct ( int number)   </h3>
+<p>  返回十进制数number的八进制数码。最大可被转换的十进制数为2147483647，即八进制数码"17777777777"能表示的数。例子：
+<pre>
+&lt;?php
+echo decoct(15) . "\n";  //结果为：17
+echo decoct(264);        //结果为：410
+?&gt;
+</pre>
+<h3>6        hexdec： 把十六进制数转换成十进制数。  </h3>
+<h3>   int hexdec ( string hex_string)   </h3>
+<p>   返回十六进制数hex_string的十进制值。对于非十六进制数编码字符，它简单地忽略掉它们。例子：
+<pre>
+&lt;?php
+$rt1 = hexdec("See");
+echo $rt1,"<BR>";
+
+$rt2 = hexdec("ee");
+echo $rt2,"<BR>";
+
+$rt3 = hexdec("Eye");
+echo $rt3,"<BR>";
+?&gt;
+输出结果：
+238
+238
+238
+</pre>
+<h3>7  octdec：把八进制数转换成十进制数。 </h3>
+<h3>   int octdec ( string octal_string)  </h3>
+<p>   返回八进制数octal_string的十进制值。
+
+
+<a name="s35"></a><p>  五  数值比较与取舍
+<h3>1         bccomp：  任意精度的两个数的比较。</h3>
+<h3>   int bccomp ( string left_operand, string right_operand [, int scale])</h3>
+<p>   如果left_operand等于right_operand，返回数值0，如果left_operand大于right_operand，返回数值+1，如果left_operand小于right_operand，返回数值-1，可选参数scale指定参与比较的小数点位数。例子：
+<pre>
+&lt;?php
+echo bccomp('1', '2') . "\n";           //结果为：-1
+
+echo bccomp('1.00001', '1', 3) . "\n";   //结果为：0
+echo bccomp('1.00001', '1', 5);          //结果为：+1
+?&gt;
+</pre>
+<h3>2        max： 找最大值。</h3>
+<h3>   mixed max ( number arg1, number arg2 [, number ...])</h3>
+<h3>   mixed max ( array numbers [, array ...])   </h3>
+<p>   该函数返回给定参数里数值最大的参数的值。如果参数只是一个数组，返回数组里最大元素的值。值得注意的是，PHP把非数字的字符串的值作为0，但当该非数字的字符串是参数里数值最大的时候，仍然将它输出。若多个参数都等价于0，则取最前边的一个。
+<pre>
+&lt;?php
+echo max(1, 3, 5, 6, 7);  // 7
+echo max(array(2, 4, 5)); // 5
+
+echo max(0, 'hello');     // 0
+echo max('hello', 0);     // hello
+echo max(-1, 'hello');    // hello
+?&gt;
+</pre>
+<h3>3  min：找最小值。 </h3>
+<h3>   mixed min ( number arg1, number arg2 [, number ...])</h3>
+<h3>   mixed min ( array numbers [, array ...])  </h3>
+<p>   该函数返回给定参数里数值最小的参数的值。如果参数只是一个数组，返回数组里最小元素的值。值得注意的是，PHP把非数字的字符串的值作为0，但当该非数字的字符串是参数里数值最小的时候，仍然将它输出。若多个参数都等价于0，则取最前边的一个。
+
+<h3>3        ceil: 向较大值方向取整数。</h3>
+<h3>   float ceil ( float value) </h3>
+<p>   返回大于或等于value的最小整数。
+
+<h3>4        floor：向较小值方向取整数。 </h3>
+ <h3>  float floor ( float value)  </h3>
+<p>   返回小于或等于value的最大整数。例子：
+<pre>
+&lt;?php
+echo ceil(4.3);    // 5
+echo ceil(9.999);  // 10
+echo floor(4.3);   // 4
+echo floor(9.999); // 9
+?&gt;
+</pre>
+<h3>5  round：四舍五入到整数。</h3>
+<h3>   float round ( float val [, int precision])  </h3>
+<p>   将val四舍五入到给定精度precision（小数位数）的数值。Precision可以为负，也可以是0（缺省值）。例子：
+<pre>
+&lt;?php
+echo round(3.4);         // 3
+echo round(3.5);         // 4
+echo round(3.6);         // 4
+echo round(3.6, 0);      // 4
+echo round(1.95583, 2);  // 1.96
+echo round(1241757, -3); // 1242000
+echo round(5.045, 2);    // 5.05
+echo round(5.055, 2);    // 5.06
+?&gt;
+</pre>
+</body>
+</html>

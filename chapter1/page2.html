@@ -1,0 +1,244 @@
+<HTML>
+<HEAD>
+   <TITLE>文字排版</TITLE>
+<link rel="stylesheet" type="text/css"
+      href="convert.css">
+
+</HEAD>
+<BODY BGCOLOR="#FFFFE0">
+
+<H1 ALIGN=CENTER>文字排版标记(TAGS)</H1>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP> 注释标记</H2>
+<H2>&lt;!--注解内容写在这里--&gt;</H2>
+<p class="big">为文件加上注释说明，但不在浏览器里显示出来。</p>
+
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP> 段落标记&lt;P&gt;...&lt;/P&gt;</H2>
+<p class="big">为文字、图片、表格等素材之间留一空白行</p>
+
+<DL>
+<DD><TT><font size=5>你好吗？&lt;p&gt;很好。</font></TT></DD>
+</DL>
+
+<P>你好吗？<P>
+
+<P>很好。</P>
+
+<PRE>
+</PRE>
+
+<P><!------Break Line-------></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP>换行标记 &lt;br&gt;</H2>
+<p class="big">令文字、图片、表格等素材显示于下一行</p>
+<DL>
+<DD><TT><font size=5>你好吗？&lt;br&gt;很好。</font></TT></DD>
+</DL>
+
+<P>你好吗？<BR>
+很好。</P>
+
+
+<h3>它有一个属性CLEAR,可以取的值为left,right,all,none，表示清除相应方位的浮动对象，使中断后的文本内容移到浮动对象的下面。</h3>
+<PRE>
+</PRE>
+
+<P><!------No Break-------></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP>不换行标记&lt;nobr&gt;</H2>
+
+<DL>
+<DD><TT><font size=5>&lt;nobr&gt; <BR>
+请改变您浏览器窗口的宽度， 使之小于这一行的宽度， 看看这个标记的作用！<BR>
+&lt;/nobr&gt; </font></TT></DD>
+</DL>
+
+<P><NOBR>请改变您浏览器窗口的宽度，使之小于这一行的宽度，看看这个标记的作用！
+</P>
+
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP>折行位置标记&lt;WBR&gt;</H2>
+<p class="big">预设折行部位</p>
+<P>请改变您浏览器&lt;WBR&gt;窗口的宽度，&lt;/WBR&gt;使之小于&lt;WBR&gt;这一行的宽度，&lt;/WBR&gt;看看这个标记的作用！</P><br><br>
+<P>请改变您浏览器<WBR>窗口的宽度，</WBR>使之小于<WBR>这一行的宽度，</WBR>看看这个标记的作用！</P>
+
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP>预格式化元素：PRE</H2>
+<p class="big">PRE让浏览器将HTML文本中的内容按其本来的格式呈现。如下面的例子：</p>
+
+<pre>
+<p class="exam">
+&lt;PRE&gt;
+       Higher still and higher
+         From the earth thou springest
+       Like a cloud of fire;
+         The blue deep thou wingest,
+And singing still dost soar, and soaring ever singest.
+&lt;/PRE&gt;
+</p>
+</pre>
+
+<p class="big">在页面上的结果就是:</p>
+
+<pre>
+<p class="big">
+       Higher still and higher
+         From the earth thou springest
+       Like a cloud of fire;
+         The blue deep thou wingest,
+And singing still dost soar, and soaring ever singest.
+</p>
+</pre>
+
+<P><!--################## Line Control ########################--><A NAME="line"></A></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP> 文字的对齐(Alignment)
+</H2>
+
+<P><!------hn centering-------></P>
+
+<H2>&lt;hn align=#&gt;...&lt;/hn&gt; <BR>
+&lt;p align=#&gt;...&lt;/p&gt; #=left, center, right</H2>
+
+<DL>
+<DD><TT><font size=5>&lt;H2 align=center&gt;Hello&lt;/H2&gt;<BR>
+&lt;H2 align=right&gt;Hello&lt;/H2&gt; </font></TT></DD>
+</DL>
+
+<H2 ALIGN=CENTER>Hello</H2>
+
+<H2 ALIGN=RIGHT>Hello</H2>
+
+<P><!------centering-------></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP>&lt;center&gt;...&lt;/center&gt; </H2>
+<p class="big">令文字、图片、表格等素材显示于居中位置。</p>
+<DL>
+<DD><TT><font size=5>&lt;center&gt;Hello&lt;/center&gt; </font></TT></DD>
+</DL>
+
+<CENTER><P>Hello </P></CENTER>
+
+<PRE>
+</PRE>
+
+<P><!--################## Division ########################--><A NAME="division"></A></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20 ALIGN=TOP> 文字的分区(Division)显示
+</H2>
+
+<P><!------left-------></P>
+
+<H2>&lt;div align=left&gt; ... &lt;/div&gt;</H2>
+<p class="big">设定文字、图片、表格等素材的显示位置。</p>
+
+
+<DL>
+<DD><TT><font size=5>&lt;div align=left&gt;<BR>
+Can you feel happiness without unpleasant? &lt;br&gt;<BR>
+Please show me your smile.<BR>
+&lt;/div&gt;</font></TT></DD>
+
+<P><TT> </TT></P>
+</DL>
+
+<P>Can you feel happiness without unpleasant?<BR>
+Please show me your smile. <!------center-------></P>
+
+<H2>&lt;div align=center&gt; ... &lt;/div&gt;</H2>
+
+<CENTER><P>Can you feel happiness without unpleasant?<BR>
+Please show me your smile. <!------right-------></P></CENTER>
+
+<H2>&lt;div align=right&gt; ... &lt;/div&gt;</H2>
+
+<DIV ALIGN=right><P>Can you feel happiness without unpleasant?<BR>
+Please show me your smile. </P></DIV>
+
+<PRE>
+</PRE>
+
+
+<P><!--################## HR ########################--><A NAME="hr"></A></P>
+
+<H2><IMG SRC="br20t.gif" ALT="+" HEIGHT=20 WIDTH=20> 标尺线</H2>
+
+<H3>&lt;hr&gt;</H3>
+
+<P><TT><font size=5>&lt;hr&gt; </font></TT></P>
+
+<P>
+<HR></P>
+
+<PRE>
+</PRE>
+
+<H3>&lt;hr size=#&gt;</H3>
+
+<P><TT><font size=5>&lt;hr size=10&gt; </font></TT></P>
+
+<P>
+<HR size=10></P>
+
+<PRE>
+</PRE>
+
+<H3>&lt;hr width=#&gt;</H3>
+
+<P><TT><font size=5>&lt;hr width=50&gt;<BR>
+&lt;hr width=50%&gt; </font></TT></P>
+
+<P>
+<HR width=50>
+<HR width=50%></P>
+
+<PRE>
+</PRE>
+
+<H3>&lt;hr align=#&gt; #=left, right</H3>
+
+<P><TT><font size=5>&lt;hr width=50% align=left&gt;<BR>
+&lt;hr width=50% align=right&gt; </font></TT></P>
+
+<P>
+<HR width=50% align=left>
+<HR width=50% align=right></P>
+
+<PRE>
+</PRE>
+
+<H3>&lt;hr noshade&gt;</H3>
+
+<P><TT><font size=5>&lt;hr noshade&gt; </font></TT></P>
+
+<P>
+<HR noshade></P>
+
+<PRE>
+</PRE>
+
+<H3>&lt;hr color=#&gt; <IMG SRC="ie.gif" HEIGHT=14 WIDTH=80></H3>
+
+<DL>
+<DD>#=rrggbb 16 进制 RGB 数码，或者是下列预定义色彩：<BR>
+<FONT COLOR="#000000">Black</FONT>, <FONT COLOR="#808000">Olive</FONT>,
+<FONT COLOR="#008080">Teal</FONT>, <FONT COLOR="#FF0000">Red</FONT>, <FONT COLOR="#0000FF">Blue</FONT>,
+<FONT COLOR="#800000">Maroon</FONT>, <FONT COLOR="#000080">Navy</FONT>,
+<FONT COLOR="#808080">Gray</FONT>, <FONT COLOR="#00FF00">Lime</FONT>, <BR>
+<FONT COLOR="#FF00FF">Fuchsia</FONT>, <FONT COLOR="#FFFFFF">White</FONT>,
+<FONT COLOR="#008000">Green</FONT>, <FONT COLOR="#800080">Purple</FONT>,
+<FONT COLOR="#C0C0C0">Silver</FONT>, <FONT COLOR="#FFFF00">Yellow</FONT>,
+<FONT COLOR="#00FFFF">Aqua</FONT> </DD>
+</DL>
+
+<P><TT><font size=5>&lt;hr color=&quot;red&quot;&gt; </font></TT></P>
+
+<P>
+<HR color="red"></P>
+
+ <BR>
+
+</BODY>
+</HTML>
+<HTML>

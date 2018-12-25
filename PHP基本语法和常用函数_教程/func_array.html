@@ -1,0 +1,614 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+        <title>数组相关函数</title>
+<link rel="stylesheet" type="text/css" href="this.css">
+</head>
+
+<body>
+<h2 align="center">第四节  数组相关函数</h2>
+<a name="s41"></a><p>一  创建数组
+<h3>1  array: 创建一个数组。 </h3>
+<h3>   array array ( [mixed ...])   </h3>
+<p>   得到一个数组，可以用 => 运算符指定元素的索引，即"索引 => 元素值"形式，索引可以是数值，也可以是字符串，当索引省略时，自动生成从0开始的数字系列索引值。当某个数组元素的索引是整数时，其后紧跟的一个元素的索引在目前最大的索引上加1。若存在相同的索引时，后面元素的会覆盖前面的元素。例子：
+<pre>
+&lt;?php
+$fruits = array (
+    "fruits"  => array("a" => "orange", "b" => "banana", "c" => "apple"),
+    "numbers" => array(1, 2, 3, 4, 5, 6),
+    "holes"   => array("first", 5 => "second", "third")
+)
+?&gt;
+得到二维数组。
+再一个例子关于索引值：
+&lt;pre&gt;
+&lt;?php
+$array = array(1, 1, 1, 1,  1, 8 => 1,  4 => 1, 19, 3 => 13);
+print_r($array);
+?&gt;
+&lt;/pre&gt;
+
+输出为：
+
+Array
+(
+    [0] => 1
+    [1] => 1
+    [2] => 1
+    [3] => 13
+    [4] => 1
+    [8] => 1
+    [9] => 19
+)
+</pre>
+<h3>2        list： 用于对多个变量进行赋值。</h3>
+<h3>   void list ( mixed ...)  </h3>
+<p>   把多个变量看做数组一样来赋值。它只在以数字作索引且从0开始的数组里有效。例子：
+<pre>
+&lt;?php
+
+$info = array('coffee', 'brown', 'caffeine');
+
+// Listing all the variables
+list($drink, $color, $power) = $info;
+echo "$drink is $color and $power makes it special.<br>";
+
+// Listing some of them
+list($drink, , $power) = $info;
+echo "$drink has $power.<br>";
+
+// Or let's skip to only the third one
+list( , , $power) = $info;
+echo "I need $power!<br>";
+
+?&gt;
+输出结果：
+coffee is brown and caffeine makes it special.
+coffee has caffeine.
+I need caffeine!
+</pre>
+<h3>3        range：创建一个数组包含某个区间里的元素。  </h3>
+<h3>   array range ( int low, int high [, int step])  </h3>
+<p>   返回从low 到high 的元素作为数组元素，可选参数step是间隔步长，应该是正整数，在没有指定情况下，取缺省值1。例子：
+<pre>
+&lt;pre&gt;
+&lt;?php
+$number = range(0,12,3);
+print_r($number);
+?&gt;
+&lt;/pre&gt;
+
+输出结果：
+
+Array
+(
+    [0] => 0
+    [1] => 3
+    [2] => 6
+    [3] => 9
+    [4] => 12
+)
+例子：
+&lt;pre&gt;
+&lt;?php
+$number = range('A','G',2);
+print_r($number);
+?&gt;
+&lt;/pre&gt;
+
+输出结果：
+
+Array
+(
+    [0] => A
+    [1] => C
+    [2] => E
+    [3] => G
+)
+
+</pre>
+<h3>4        array_fill： 用数值填充数组。</h3>
+<h3>   array array_fill ( int start_index, int num, mixed value)</h3>
+<p>   从索引start_index开始起的num个数组元素用 value 来填充。Num必须大于0。
+
+<a name="s42"></a><p>  二  数组元素引用
+<h3>1  count： 统计数组元素的数目。    </h3>
+<h3>   int count ( mixed var [, int mode])  </h3>
+<p>   返回var里元素的个数，若var不是数组，则返回1，但是count(NULL)的值为0。可选参数mode设置为COUNT_RECURSIVE（或1）时，可以递归统计多维数组的元素个数。Mode的缺省值为0。例子：
+<pre>
+&lt;?php
+$food = array('fruits' => array('orange', 'banana', 'apple'),
+              'veggie' => array('carrot', 'collard', 'pea'));
+
+// 递归计数结果
+echo count($food, COUNT_RECURSIVE);  // 输出 8
+
+// 正常计数结果
+echo count($food);                  // 输出 2
+
+?&gt;
+</pre>
+<h3>2        sizeof： 与count 相同。  </h3>
+
+<h3>3        in_array： 检查某个数值是否在数组里。</h3>
+<h3>   bool in_array ( mixed needle, array haystack [, bool strict])</h3>
+<p>   在数组haystack里搜索needle，找到了返回true，找不到返回false。若可选参数strict设置成true，则还要检查needle的数据类型。如果needle是字符串，比较过程是大小写敏感的。例子：
+<pre>
+&lt;?php
+$a = array('1.10', 12.4, 1.13);
+
+if (in_array('12.4', $a, true)) {
+    echo "'12.4' found with strict check\n";
+}
+
+if (in_array(1.13, $a, true)) {
+    echo "1.13 found with strict check\n";
+}
+?&gt;
+
+输出结果：
+1.13 found with strict check
+</pre>
+<h3>4        array_search：搜索某个数值是否在数组里。</h3>
+<h3>   mixed array_search ( mixed needle, array haystack [, bool strict])</h3>
+<p>   在数组haystack里搜索needle，找到了就返回其索引值，找不到返回false。若可选参数strict设置成true，则还要检查needle的数据类型。如果needle是字符串，比较过程是大小写敏感的。若needle在数组haystack里多次出现，返回的是第一次出现的索引值。例子：
+<pre>
+&lt;?php
+$array = array(0 => 'blue', 1 => 'red', 2 => 'green', 3 => 'red');
+
+$key = array_search('green', $array); // $key = 2;
+$key = array_search('red', $array);   // $key = 1;
+?&gt;
+</pre>
+<h3>5        array_values：返回数组里的所有元素的数值。 </h3>
+<h3>   array array_values ( array input)  </h3>
+<p>   把数组input的所有元素数值按数字系列索引号输出。例子：
+<pre>
+&lt;pre&gt;
+   &lt;?php
+$array = array("size" => "XL", "color" => "gold");
+print_r(array_values($array));
+?&gt;
+&lt;/pre&gt;
+
+结果是：
+
+Array
+(
+    [0] => XL
+    [1] => gold
+)
+</pre>
+
+<h3>6        each：得到当前元素的索引与数值对，并把数组指针移到下一个元素位置。</h3>
+<h3>   array each ( array array)  </h3>
+<p>   返回数组当前元素的索引与数值对，并把数组指针移到下一个元素位置。索引与数值对包含四个部分：0，1， key,  value。0和key是该数组元素的索引值，1和value里是该数组元素的数值。例子：
+<pre>
+&lt;pre&gt;
+&lt;?php
+$foo = array("Robert" => "Bob", "Seppo" => "Sepi");
+$bar = each($foo);
+print_r($bar);
+?&gt;
+&lt;/pre&gt;
+
+结果是：
+
+Array
+(
+    [1] => Bob
+    [value] => Bob
+    [0] => Robert
+    [key] => Robert
+)
+
+再一个例子：
+&lt;?php
+$fruit = array('a' => 'apple', 'b' => 'banana', 'c' => 'cranberry');
+
+reset($fruit);
+while (list($key, $val) = each($fruit)) {
+    echo "$key => $val\n";
+}
+?&gt;
+
+输出结果：
+a => apple
+b => banana
+c => cranberry
+</pre>
+
+<h3>７　current：取得数组的当前元素。</h3>
+<h3>   mixed current ( array array)   </h3>
+<p>   返回数组内部指针所指向的元素。
+
+<h3>８　next： 把数组内部指针指向下一个元素。 </h3>
+<h3>   mixed next ( array array)   </h3>
+<p>   返回指针所指向的下一个数组元素，当后面再没有其他元素时，返回false。
+
+<h3>9  prev：把数组内部指针指向上一个元素。  </h3>
+<h3>   mixed prev ( array array)    </h3>
+<p>   返回指针所指向的上一个数组元素，当前面再没有其他元素时，返回false。
+
+<h3>１０　end：把数组内部指针指向最后一个元素。  </h3>
+<h3>   mixed end ( array array)   </h3>
+<p>   返回数组的最后一个元素。例子：
+<pre>
+&lt;?php
+$transport = array('foot', 'bike', 'car', 'plane');
+$mode = current($transport); // $mode = 'foot';
+$mode = next($transport);    // $mode = 'bike';
+$mode = current($transport); // $mode = 'bike';
+$mode = prev($transport);    // $mode = 'foot';
+$mode = end($transport);     // $mode = 'plane';
+$mode = current($transport); // $mode = 'plane';
+?&gt;
+</pre>
+
+<h3>１１　pos： 与current 相同。  </h3>
+
+<h3>１２　array_count_values： 统计某个数值在数组里出现的频率。</h3>
+<h3>   array array_count_values ( array input)   </h3>
+<p>   返回一个数组，用原输入数组input的元素值做索引，用该元素出现的次数做数值。例子：
+<pre>
+&lt;?php
+$array = array(1, "hello", 1, "world", "hello");
+print_r(array_count_values($array));
+?&gt;
+
+输出结果：
+
+Array
+(
+    [1] => 2
+    [hello] => 2
+    [world] => 1
+)
+</pre>
+
+<h3>１３　array_pop：把数组的最后一个元素去掉。 </h3>
+<h3>   mixed array_pop ( array array)  </h3>
+<p>   返回数组array的最后一个元素，原数组元素减少一个。例子：
+<pre>
+&lt;?php
+$stack = array("orange", "banana", "apple", "raspberry");
+$fruit = array_pop($stack);
+echo  $fruit,"<br>";
+print_r($stack);
+?&gt;
+结果输出：
+raspberry
+Array
+(
+    [0] => orange
+    [1] => banana
+    [2] => apple
+)
+</pre>
+
+<h3>1４  array_push:  向数组末尾添加数据作为数组元素。 </h3>
+<h3>    int array_push ( array array, mixed var [, mixed ...])</h3>
+<p>把数据var添加到数组array的末尾，作为数组元素。返回操作后数组里的元素的个数。例子：
+<pre>
+&lt;?php
+$stack = array("orange", "banana");
+$howmany = array_push($stack, "apple", "raspberry");
+echo  $howmany,"<br>";
+print_r($stack);
+?&gt;
+输出结果：
+4
+Array
+(
+    [0] => orange
+    [1] => banana
+    [2] => apple
+    [3] => raspberry
+)
+</pre>
+
+<h3>1５  array_shift： 把数组的第一个元素去掉。</h3>
+<h3>   mixed array_shift ( array array) </h3>
+ <p>  该函数把数组的第一个元素去掉，并返回给函数名。原数组的剩余元素依次前移。例子：
+ <pre>
+ &lt;?php
+$stack = array("orange", "banana", "apple", "raspberry");
+$fruit = array_shift($stack);
+print_r($stack);
+?&gt;
+输出结果：
+Array
+(
+    [0] => banana
+    [1] => apple
+    [2] => raspberry
+)
+ </pre>
+<h3>１６　array_unshift：在数组的开始处添加一个或多个元素。 </h3>
+<h3>    int array_unshift ( array array, mixed var [, mixed ...])</h3>
+<p>该函数把var作为数组元素整体加到原始数组array的开始处，调整原数组里所有数字索引值从新调整到从0开始，其它形式的索引保持不变。返回新数组里元素的个数。例子：
+<pre>
+&lt;?php
+$queue = array("orange", "banana");
+array_unshift($queue, "apple", "raspberry");
+?&gt;
+新的数组内容如下：
+Array
+(
+    [0] => apple
+    [1] => raspberry
+    [2] => orange
+    [3] => banana
+)
+</pre>
+
+<h3>１７　array_sum：计算数组元素数值的总和。</h3>
+<h3>   mixed array_sum ( array array) </h3>
+<p>   返回数组元素里整数或浮点数数值的总和，把字符元素当做0。例子：
+<pre>
+&lt;?
+$a = array(2, 4, 6, 8,"we","are",100);
+echo "sum(a) = " . array_sum($a) . "\n";
+?&gt;
+输出结果为： 120
+
+</pre>
+
+<a name="s43"></a><p>  三  数组分割与合并：
+
+<h3>1  array_chunk：将数组分割成组块。 </h3>
+<h3>array array_chunk ( array input, int size [, bool preserve_keys])</h3>
+<p>该函数把原始数组input按顺序分割成几个数组，每个数组包含size个元素，最后一个数组的元素个数可以少于size。可选参数preserve_keys设置为true时，新的数组元素的索引值保留原始数组中的索引值，否则新的数组元素的索引值从0开始（这是缺省情况）。例子：
+<pre>
+&lt;?php
+$input_array = array('a', 'b', 'c', 'd', 'e');
+print_r(array_chunk($input_array, 2));
+print_r(array_chunk($input_array, 2, true));
+?&gt;
+结果是：
+Array
+(
+    [0] => Array
+        (
+            [0] => a
+            [1] => b
+        )
+
+    [1] => Array
+        (
+            [0] => c
+            [1] => d
+        )
+
+    [2] => Array
+        (
+            [0] => e
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [0] => a
+            [1] => b
+        )
+
+    [1] => Array
+        (
+            [2] => c
+            [3] => d
+        )
+
+    [2] => Array
+        (
+            [4] => e
+        )
+
+)
+</pre>
+
+<h3>２　array_slice：截取数组的一部分。 </h3>
+<h3>   array array_slice ( array array, int offset [, int length])</h3>
+<p>   返回原始数组里从索引值offset开始起的length个元素。若offset为负数，则从数组末尾端向前数offset个元素作为截取的起点。如果length为负数，则返回数组array 从offset位置开始到倒数第length个位置的元素。若没有设置length的值，则返回从offset到数组最后一个元素。例子：
+<pre>
+&lt;?php
+$input = array("a", "b", "c", "d", "e");
+
+$output = array_slice($input, 2);      // returns "c", "d", and "e"
+$output = array_slice($input, 2, -1);  // returns "c", "d"
+$output = array_slice($input, -2, 1);  // returns "d"
+$output = array_slice($input, 0, 3);   // returns "a", "b", and "c"
+?&gt;
+</pre>
+
+<h3>３　array_unique：去掉数组里相重的数值。  </h3>
+<h3>   array array_unique ( array array)   </h3>
+<p>   返回没有相重数值的数组。原始数组的索引值保留下来，相重值的元素保留最先出现的。相重的标准是类型和数值都相同。例子：
+<pre>
+&lt;?php
+$input = array("a" => "green", "red", "b" => "green", "blue", "red");
+$result = array_unique($input);
+print_r($result);
+?&gt;
+
+结果为：
+
+Array
+(
+    [a] => green
+    [0] => red
+    [1] => blue
+)
+</pre>
+
+<h3>４　array_combine：把两个数组的元素分别当作索引和数值组成一个新的数组。</h3>
+<h3>   array array_combine ( array keys, array values)  </h3>
+<p>   返回由数组keys做索引，数组values做数组元素值的数组。当两个参数数组的元素个数不一样多时，返回false。例子：
+<pre>
+&lt;?php
+$a = array('green', 'red', 'yellow');
+$b = array('avocado', 'apple', 'banana');
+$c = array_combine($a, $b);
+
+print_r($c);
+?&gt;
+结果为：
+Array
+(
+    [green]  => avocado
+    [red]    => apple
+    [yellow] => banana
+)
+</pre>
+
+<h3>５　array_merge：合并两个或多个数组。 </h3>
+<h3>   array array_merge ( array array1, array array2 [, array ...])</h3>
+<p>   返回多个数按先后顺序组合并后的数组。若元素有相同的字符串索引，则后一个会覆盖前面的一个。若元素有相同的数字系列索引，则后一个追加在数组的后面。例子：
+<pre>
+&lt;?php
+$array1 = array("color" => "red", 2, 4);
+$array2 = array("a", "b", "color" => "green", "shape" => "trapezoid", 4);
+$result = array_merge($array1, $array2);
+print_r($result);
+?&gt;
+结果为：
+Array
+(
+    [color] => green
+    [0] => 2
+    [1] => 4
+    [2] => a
+    [3] => b
+    [shape] => trapezoid
+    [4] => 4
+)
+
+</pre>
+
+<a name="s44"></a><p>  四  数组元素排序
+<h3>1  sort：把数组按升序排序。   </h3>
+<h3>   bool sort ( array array [, int sort_flags])    </h3>
+<p>   该函数把数组按升序排序，元素的索引值被重新给定。排序成功返回true，否则返回false。第二个可选参数sort_flags规定排序方式：
+<br>   SORT_REGULAR：按常规比较大小
+<br>   SORT_NUMERIC：按数值比较大小
+<br>   SORT_STRING：作为字符串比较
+<pre>
+例子：
+&lt;?php
+
+$fruits = array("lemon", "orange", "banana", "apple");
+sort($fruits);
+?&gt;
+排序后的$fruits元素顺序为：apple, banana, lemon, orange。
+</pre>
+
+<h3>2        rsort：按反序排列数组元素。   </h3>
+<h3>   bool rsort ( array array [, int sort_flags])  </h3>
+<p>   该函数按元素值进行降序排序，元素的索引值重新给定。排序成功返回true，否则返回false。第二个可选参数sort_flags的用法同sort函数。
+
+<h3>3        arsort：按反序排列数组元素，保留原有的索引值。</h3>
+<h3>   bool arsort ( array array [, int sort_flags])  </h3>
+ <p>  该函数按元素值进行降序排序，元素的索引值不变。排序成功返回true，否则返回false。第二个可选参数sort_flags的用法同sort函数。例子：
+<pre>
+&lt;?php
+$fruits = array("d" => "lemon", "a" => "orange", "b" => "banana", "c" => "apple");
+arsort($fruits);
+reset($fruits);
+while (list($key, $val) = each($fruits)) {
+    echo "$key = $val\n";
+}
+?&gt;
+输出结果：
+a = orange
+d = lemon
+b = banana
+c = apple
+</pre>
+
+<h3>４　ksort：按索引对数组元素排序。 </h3>
+<h3>  bool ksort ( array array [, int sort_flags])  </h3>
+ <p> 该函数按元素的索引进行排序，保持元素的索引值与元素的关联关系。排序成功返回true，否则返回false。第二个可选参数sort_flags的用法同sort函数。例子：
+<pre>
+&lt;?php
+$fruits = array("d"=>"lemon", "a"=>"orange", "b"=>"banana", "c"=>"apple");
+ksort($fruits);
+reset($fruits);
+while (list($key, $val) = each($fruits)) {
+    echo "$key = $val\n";
+}
+?&gt;
+结果为：
+a = orange
+b = banana
+c = apple
+d = lemon
+</pre>
+
+<h3>５　natsort：按常规自然数顺序对数组元素排序。</h3>
+<h3>  void natsort ( array array) </h3>
+<p>  该函数按常规自然数顺序对数组元素排序，不同于计算机里按字符顺序大小的排序。例子：
+<pre>
+&lt;?php
+$arr1 = $arr2 = array("img12.png", "img10.png", "img2.png", "img1.png");
+echo "标准字符串比较方式&lt;br&gt;";
+usort($arr1, "strcmp");
+print_r($arr1);
+echo "&lt;br&gt;常规自然数比较方式&lt;br&gt;";
+usort($arr2, "strnatcmp");
+print_r($arr2);
+?&gt;
+结果：
+标准字符串比较方式
+Array
+(
+    [0] => img1.png
+    [1] => img10.png
+    [2] => img12.png
+    [3] => img2.png
+)
+常规自然数比较方式
+Array
+(
+    [0] => img1.png
+    [1] => img2.png
+    [2] => img10.png
+    [3] => img12.png
+)
+</pre>
+<h3>６　usort：按用户定义的函数对数组元素值进行排序。</h3>
+<h3>  bool usort ( array array, callback cmp_function) </h3>
+<p>  该函数依据数组元素值按用户定义的函数比较后排序。排序成功返回true，否则返回false。例子：
+<pre>
+&lt;?php
+function cmp($a, $b)
+{
+    if ($a == $b) {
+        return 0;
+    }
+    return ($a &lt; $b) ? -1 : 1;
+}
+
+$a = array(3, 2, 5, 6, 1);
+
+usort($a, "cmp");
+
+while (list($key, $value) = each($a)) {
+    echo "$key: $value\n";
+}
+?&gt;
+结果为：
+0: 1
+1: 2
+2: 3
+3: 5
+4: 6
+</pre>
+<h3>７　array_reverse：把数组元素的顺序颠倒。</h3>
+<h3>  array array_reverse ( array array [, bool preserve_keys]) </h3>
+<p>  返回颠倒顺序后的数组。若preserve_keys设置为 true，则保留原有的索引值。
+
+
+</body>
+</html>
